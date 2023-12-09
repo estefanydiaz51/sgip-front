@@ -10,5 +10,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'sgip';
+  title = 'Sistema de Gestión de Información de posgrados';
 }
