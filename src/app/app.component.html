@@ -11,17 +11,21 @@
       </a>
     </div>
     <ul style="margin-top: 5vh;" nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-menu-item nzMatchRouter>
-        <a [routerLink]="['cohorts']">Cohortes</a>
+      <li nz-menu-item routerLink="/cohorts">
+        <span nz-icon nzType="contacts"></span>
+        <span>Cohortes</span>
       </li>
-      <li nz-menu-item nzMatchRouter>
-        <a routerLink="/teachers">Docentes</a>
+      <li nz-menu-item routerLink="/teachers">
+        <span nz-icon nzType="idcard"></span>
+        <span>Docentes</span>
       </li>
-      <li nz-menu-item nzMatchRouter>
-        <a routerLink="/programs">Programas</a>
+      <li nz-menu-item routerLink="/programs">
+        <span nz-icon nzType="solution"></span>
+        <span>Programas</span>
       </li>
-      <li nz-menu-item nzMatchRouter>
-        <a routerLink="/students">Estudiantes</a>
+      <li nz-menu-item routerLink="/students">
+        <span nz-icon nzType="team"></span>
+        <span>Estudiantes</span>
       </li>
     </ul>
   </nz-sider>
@@ -44,9 +48,10 @@
         </button>
         <nz-dropdown-menu #menu2="nzDropdownMenu">
           <ul nz-menu>
-            <li nz-menu-item>menu2 1st menu item</li>
-            <li nz-menu-item>menu2 2nd menu item</li>
-            <li nz-menu-item>menu2 3rd menu item</li>
+            <li nz-menu-item>Nombre de usuario</li>
+            <nz-divider style="margin:10px"></nz-divider>
+            <li nz-menu-item>Perfil</li>
+            <li nz-menu-item>Ayuda</li>
           </ul>
         </nz-dropdown-menu>
       </div>
