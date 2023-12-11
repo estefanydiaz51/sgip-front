@@ -2,13 +2,13 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-loading-screen',
   standalone: true,
   imports: [
     CommonModule,
   ],
-  templateUrl:'./home.component.html',
-  styleUrl: './home.component.css',
+  templateUrl: './loadingScreen.component.html',
+  styleUrl: './loadingScreen.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent { }
+export class LoadingScreenComponent { }

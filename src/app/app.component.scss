@@ -41,7 +41,7 @@
 
 .sidebar-logo img {
   display: inline-block;
-  height: 3.5vw;
+  height: 42px;
   vertical-align: middle;
 }
 
@@ -72,12 +72,7 @@ nz-header {
   align-items: center;
 }
 
-nz-content {
-  margin: 24px;
-}
-
 .inner-content {
-  padding: 24px;
   background: #fff;
   height: 100%;
 }
@@ -100,4 +95,12 @@ nz-content {
   cursor: pointer;
   margin-right: 7px;
   font-size: x-large;
+}
+
+.viewTitle{
+  margin: 0;
+  padding: 2vh;
+  text-align: center;
+  background: #00923F;
+  color: white;
 }
