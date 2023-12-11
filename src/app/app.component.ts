@@ -19,6 +19,7 @@ export class AppComponent {
   isCollapsed = false;
   year = new Date().getFullYear();
   title = '';
+  showLayout = true;
 
   constructor(private router: Router){
     this.router.events.subscribe((val: any) => {
@@ -39,18 +40,31 @@ export class AppComponent {
         switch (baseUrl) {
           case '/home':
             this.title = 'Bienvenido';
+            this.showLayout = true;
             break;
           case '/cohorts':
             this.title = 'Cohortes';
+            this.showLayout = true;
             break;
           case '/teachers':
             this.title = 'Docentes';
+            this.showLayout = true;
             break;
           case '/programs':
             this.title = 'Programas';
+            this.showLayout = true;
             break;
           case '/students':
             this.title = 'Estudiantes';
+            this.showLayout = true;
+            break;
+          case '/signin':
+            this.title = 'Estudiantes';
+            this.showLayout = false;
+            break;
+          case '/signup':
+            this.title = 'Estudiantes';
+            this.showLayout = false;
             break;
           default:
             this.title = '';

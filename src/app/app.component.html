@@ -1,4 +1,4 @@
-<nz-layout class="app-layout">
+<nz-layout class="app-layout" *ngIf="showLayout">
   <nz-sider class="menu-sidebar"
     nzCollapsible
     nzWidth="256px"
@@ -72,3 +72,4 @@
     </nz-footer>
   </nz-layout>
 </nz-layout>
+<router-outlet *ngIf="!showLayout"></router-outlet>
