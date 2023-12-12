@@ -7,11 +7,22 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import {RouterModule} from '@angular/router';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { AuthService } from './services/auth.service';
+import { LoadingScreenComponent } from '../shared/loadingScreen/loadingScreen.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, NzIconModule, NzLayoutModule, NzMenuModule, RouterModule, NzDropDownModule, NzDividerModule],
+  imports: [
+    CommonModule, 
+    RouterOutlet, 
+    NzIconModule, 
+    NzLayoutModule, 
+    NzMenuModule, 
+    RouterModule, 
+    NzDropDownModule, 
+    NzDividerModule,
+    LoadingScreenComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
@@ -20,8 +31,9 @@ export class AppComponent {
   year = new Date().getFullYear();
   title = '';
   showLayout = true;
+  loading = false;
 
-  constructor(private router: Router){
+  constructor(private router: Router, private authService : AuthService){
     this.router.events.subscribe((val: any) => {
       let url = '';
       if(val){
@@ -72,5 +84,14 @@ export class AppComponent {
         }
       }
     });
+
+    this.authService.generaLoading$.subscribe(res=>{
+      this.loading = res;
+    });
+  }
+
+  signOut(): void {
+    this.authService.logout();
+    this.router.navigate(['signin']);
   }
 }

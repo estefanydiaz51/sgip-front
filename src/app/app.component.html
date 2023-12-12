@@ -1,75 +1,79 @@
-<nz-layout class="app-layout" *ngIf="showLayout">
-  <nz-sider class="menu-sidebar"
-    nzCollapsible
-    nzWidth="256px"
-    nzBreakpoint="md"
-    [(nzCollapsed)]="isCollapsed"
-    [nzTrigger]="null">
-    <div class="sidebar-logo">
-      <a routerLink="/home">
-        <img src="../assets/img/logo.png" alt="logo">
-      </a>
-    </div>
-    <ul style="margin-top: 5vh;" nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-menu-item routerLink="/cohorts">
-        <span nz-icon nzType="contacts"></span>
-        <span>Cohortes</span>
-      </li>
-      <li nz-menu-item routerLink="/teachers">
-        <span nz-icon nzType="idcard"></span>
-        <span>Docentes</span>
-      </li>
-      <li nz-menu-item routerLink="/programs">
-        <span nz-icon nzType="solution"></span>
-        <span>Programas</span>
-      </li>
-      <li nz-menu-item routerLink="/students">
-        <span nz-icon nzType="team"></span>
-        <span>Estudiantes</span>
-      </li>
-    </ul>
-  </nz-sider>
-  <nz-layout>
-    <nz-header>
-      <div class="app-header">
-        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-            <span class="trigger"
-               nz-icon
-               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-            ></span>
-        </span>
-        <button 
-          nz-button 
-          nz-dropdown 
-          [nzDropdownMenu]="menu2" 
-          nzPlacement="bottomRight"
-          class="userButton">
-          <span nz-icon nzType="user"></span>
-        </button>
-        <nz-dropdown-menu #menu2="nzDropdownMenu">
-          <ul nz-menu>
-            <li nz-menu-item>Nombre de usuario</li>
-            <nz-divider style="margin:10px"></nz-divider>
-            <li nz-menu-item>Perfil</li>
-            <li nz-menu-item>Ayuda</li>
-          </ul>
-        </nz-dropdown-menu>
+@if(!loading) {
+  <nz-layout class="app-layout" *ngIf="showLayout">
+    <nz-sider class="menu-sidebar"
+      nzCollapsible
+      nzWidth="256px"
+      nzBreakpoint="md"
+      [(nzCollapsed)]="isCollapsed"
+      [nzTrigger]="null">
+      <div class="sidebar-logo">
+        <a routerLink="/home">
+          <img src="../assets/img/logo.png" alt="logo">
+        </a>
       </div>
-    </nz-header>
-    <div nz-row>
-      <h1 nz-col nzSpan="24" class="viewTitle">
-        {{title}}
-      </h1>
-    </div>
-    <nz-content>
-      <div class="inner-content">
-        <router-outlet></router-outlet>
+      <ul style="margin-top: 5vh;" nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+        <li nz-menu-item routerLink="/cohorts">
+          <span nz-icon nzType="contacts"></span>
+          <span>Cohortes</span>
+        </li>
+        <li nz-menu-item routerLink="/teachers">
+          <span nz-icon nzType="idcard"></span>
+          <span>Docentes</span>
+        </li>
+        <li nz-menu-item routerLink="/programs">
+          <span nz-icon nzType="solution"></span>
+          <span>Programas</span>
+        </li>
+        <li nz-menu-item routerLink="/students">
+          <span nz-icon nzType="team"></span>
+          <span>Estudiantes</span>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-header>
+        <div class="app-header">
+          <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+              <span class="trigger"
+                 nz-icon
+                 [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+              ></span>
+          </span>
+          <button 
+            nz-button 
+            nz-dropdown 
+            [nzDropdownMenu]="menu2" 
+            nzPlacement="bottomRight"
+            class="userButton">
+            <span nz-icon nzType="user"></span>
+          </button>
+          <nz-dropdown-menu #menu2="nzDropdownMenu">
+            <ul nz-menu>
+              <li nz-menu-item>Nombre de usuario</li>
+              <nz-divider style="margin:10px"></nz-divider>
+              <li nz-menu-item>Ayuda</li>
+              <li nz-menu-item (click)="signOut()">Salir</li>
+            </ul>
+          </nz-dropdown-menu>
+        </div>
+      </nz-header>
+      <div nz-row>
+        <h1 nz-col nzSpan="24" class="viewTitle">
+          {{title}}
+        </h1>
       </div>
-    </nz-content>
-    <nz-footer 
-      class="footer">
-      AndesDev Solutions{{' @ ' + year}}
-    </nz-footer>
+      <nz-content>
+        <div class="inner-content">
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+      <nz-footer 
+        class="footer">
+        AndesDev Solutions{{' @ ' + year}}
+      </nz-footer>
+    </nz-layout>
   </nz-layout>
-</nz-layout>
-<router-outlet *ngIf="!showLayout"></router-outlet>
+  <router-outlet *ngIf="!showLayout"></router-outlet>
+}@else{
+  <app-loading-screen></app-loading-screen>
+}
