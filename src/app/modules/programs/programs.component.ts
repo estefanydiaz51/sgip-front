@@ -8,7 +8,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
     selector: 'app-programs',
     standalone: true,
     templateUrl: './programs.component.html',
-    styleUrl: './programs.component.css',
+    styleUrl: './programs.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         CommonModule,

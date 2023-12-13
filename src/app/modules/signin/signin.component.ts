@@ -16,7 +16,7 @@ import { NzNotificationModule, NzNotificationService } from 'ng-zorro-antd/notif
     CommonModule, CommonModule,NzInputModule,FormsModule,ReactiveFormsModule,NzFormModule,NzButtonModule,NzNotificationModule
   ],
   templateUrl:'./signin.component.html',
-  styleUrl: './signin.component.css',
+  styleUrl: './signin.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SigninComponent implements OnInit { 

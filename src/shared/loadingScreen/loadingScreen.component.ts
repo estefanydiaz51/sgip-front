@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     CommonModule,
   ],
   templateUrl: './loadingScreen.component.html',
-  styleUrl: './loadingScreen.component.css',
+  styleUrl: './loadingScreen.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoadingScreenComponent { }

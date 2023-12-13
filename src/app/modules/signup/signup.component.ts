@@ -16,7 +16,7 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
     CommonModule,NzInputModule,FormsModule,ReactiveFormsModule,NzFormModule,NzButtonModule
   ],
   templateUrl:'./signup.component.html',
-  styleUrl: './signup.component.css',
+  styleUrl: './signup.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignupComponent implements OnInit { 

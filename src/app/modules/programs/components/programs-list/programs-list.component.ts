@@ -10,7 +10,7 @@ import { ProgramCardComponent } from '../program-card/program-card.component';
     ProgramCardComponent
   ],
   templateUrl: './programs-list.component.html',
-  styleUrl: './programs-list.component.css',
+  styleUrl: './programs-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProgramsListComponent { }

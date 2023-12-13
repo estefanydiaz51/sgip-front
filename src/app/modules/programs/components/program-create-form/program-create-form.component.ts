@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     CommonModule,
   ],
   templateUrl: './program-create-form.component.html',
-  styleUrl: './program-create-form.component.css',
+  styleUrl: './program-create-form.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProgramCreateFormComponent { }

@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     CommonModule,
   ],
   templateUrl:'./program-card.component.html',
-  styleUrl: './program-card.component.css',
+  styleUrl: './program-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProgramCardComponent { }
