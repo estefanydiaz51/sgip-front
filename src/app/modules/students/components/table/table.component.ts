@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
-import { Cohort } from '../../../../interfaces/general.interfaces';
+import { Student } from '../../../../interfaces/general.interfaces';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 @Component({
   selector: 'app-table',
@@ -12,5 +12,9 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
   styleUrl: './table.component.scss',
 })
 export class TableComponent {
-  @Input() cohorts!: Cohort[];
+  @Input() students: Student[] = [];
+
+  ngOnInit(): void {
+    console.log(this.students);
+  }
 }

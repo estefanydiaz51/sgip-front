@@ -1,17 +1,17 @@
-<nz-table #basicTable [nzData]="cohorts">
+<nz-table #basicTable [nzData]="students">
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Código</th>
-      <th># estudiantes</th>
+      <th># Documento</th>
+      <th>Correo</th>
       <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let data of basicTable.data">
       <td>{{data.name}}</td>
-      <td>{{data.code}}</td>
-      <td>{{data.numberStudents}}</td>
+      <td>{{data.id}}</td>
+      <td>{{data.email}}</td>
       <td class="actions">
         <a><span nz-icon nzType="edit" nzTheme="outline"></span></a>
         <a><span nz-icon nzType="eye-invisible" nzTheme="outline"></span></a>

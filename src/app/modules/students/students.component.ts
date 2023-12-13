@@ -1,14 +1,31 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { TableComponent } from './components/table/table.component';
+import { FormComponent } from './components/Form/form.component';
+import { GeneralService } from '../../services/general.service';
+import { Student } from '../../interfaces/general.interfaces';
 
 @Component({
   selector: 'app-students',
   standalone: true,
-  imports: [
-    CommonModule,
-  ],
-  template: `<p>students works!</p>`,
+  templateUrl: './students.component.html',
   styleUrl: './students.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, NzButtonModule, TableComponent, FormComponent],
 })
-export class StudentsComponent { }
+export class StudentsComponent implements OnInit {
+  students: Student[] = [];
+  showForm: boolean = false;
+
+  constructor(private generalService: GeneralService) {}
+
+  ngOnInit(): void {
+    this.generalService.getStudents().subscribe((res) => {
+      this.students = res;
+    });
+  }
+
+  handleShowForm() {
+    this.showForm = true;
+  }
+}

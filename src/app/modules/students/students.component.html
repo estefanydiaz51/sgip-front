@@ -4,16 +4,14 @@
       nz-button
       class="register-button"
       nzType="primary"
-      (click)="handleShowForm()"
-      >
-      <span>Registrar Cohorte</span>
+      (click)="handleShowForm()">
+      <span>Registrar Estudiante</span>
     </button>
   </div>
-
   <div *ngIf="!showForm">
     <app-table
-      *ngIf="cohorts.length>0"
-      [cohorts]="cohorts">
+      *ngIf="students"
+      [students]="students">
     </app-table>
   </div>
   

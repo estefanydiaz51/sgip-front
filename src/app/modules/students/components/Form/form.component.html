@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="header">
+    Registrar nuevo estudiante
+  </div>
+  <form nz-form>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="name">Nombre</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+        <input nz-input name="name" type="name" id="name">
+      </nz-form-control>
+    </nz-form-item >
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="code">Código</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+        <input nz-input name="code" type="code" id="code">
+      </nz-form-control>
+    </nz-form-item >
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="students"># Estudiantes</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+        <input nz-input name="students" type="students" id="students">
+      </nz-form-control>
+    </nz-form-item >
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="startDate">Fecha de inicio</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+        <input nz-input name="startDate" type="startDate" id="startDate">
+      </nz-form-control>
+    </nz-form-item >
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="endDate">Fecha de Fin</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+        <input nz-input name="endDate" type="endDate" id="endDate">
+      </nz-form-control>
+    </nz-form-item >
+    <nz-form-item nz-row class="register-area">
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button nz-button nzType="primary">Crear Estudiante</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+  
+</div>

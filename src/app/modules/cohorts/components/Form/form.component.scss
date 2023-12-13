@@ -1,0 +1,24 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px; 
+  border: 1px solid black;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.header {
+  background-color: #00923F;
+  margin-left: 0px;
+  margin-right: 0px;
+  border-radius: 15px 15px 0 0;
+  color: white;
+  padding-left: 15px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.register-area {
+  text-align: center;
+}
