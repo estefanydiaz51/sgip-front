@@ -25,7 +25,10 @@ export class AuthenticationInterceptor implements HttpInterceptor {
     let token = localStorage.getItem('token');
     console.log('token : ', token);
     
-    let newRequest = request.clone({ setHeaders: { token: `${token}` } });
+    let newRequest = request.clone({ setHeaders: { 
+      token: `${token}`,
+      'ngrok-skip-browser-warning': 'true' 
+    } });
 
     return next.handle(newRequest);
   }
