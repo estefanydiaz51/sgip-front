@@ -88,7 +88,7 @@ export class FormComponent implements OnInit {
       (error) => {
         this.notificacionService.error(
           'Error',
-          'Hubo un error al intentar crear el programa'
+          'Hubo un error al intentar crear el Cohorte'
         );
       }
     );

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -10,7 +10,13 @@ import {
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
-import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import {
+  NzNotificationModule,
+  NzNotificationService,
+} from 'ng-zorro-antd/notification';
+import { GeneralService } from '../../../../services/general.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
+import { Student } from '../../../../interfaces/general.interfaces';
 
 @Component({
   selector: 'app-form',
@@ -33,43 +39,62 @@ import { NzNotificationModule } from 'ng-zorro-antd/notification';
 export class FormComponent implements OnInit {
   formData!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  @Output() reloadTable = new EventEmitter<boolean>();
+  @Output() hideForm = new EventEmitter<boolean>();
+
+  constructor(
+    private fb: FormBuilder,
+    private generalService: GeneralService,
+    private notificacionService: NzNotificationService,
+    private msg: NzMessageService
+  ) {}
 
   formInit(): void {
-    this.formData = this.fb.nonNullable.group({
-      adviserGive: ['', { validators: [Validators.required] }],
-      clientToGive: [['Todos'], [Validators.required]],
-      adviserDestination: ['', { validators: [Validators.required] }],
-      reasonGive: ['', { validators: [Validators.required] }],
-      observations: [
-        '',
-        {
-          updateOn: 'blur',
-        },
-      ],
+    this.formData = this.fb.group({
+      name: ['', [Validators.required]],
+      code: ['', [Validators.required]],
+      numberStudents: ['', [Validators.required]],
+      startDate: ['', [Validators.required]],
+      endDate: ['', [Validators.required]],
     });
-  }
-
-  isFormInvalid() {
-    if (
-      this.formData.controls['adviserGive'].invalid ||
-      this.formData.controls['clientToGive'].invalid ||
-      this.formData.controls['adviserDestination'].invalid ||
-      this.formData.controls['reasonGive'].invalid ||
-      this.formData.controls['observations'].invalid
-    ) {
-      return true;
-    } else {
-      return false;
-    }
   }
 
   ngOnInit(): void {
     this.formInit();
-    // if (this.valueList === valueListInitialState.data) {
-    //   // Evalúa si los datos de lista de valores no han sido cargados
-    //   this.loadingValourList = true;
-    //   this.store.dispatch(startLoadingValueList()); // En caso contrario, se llama al servicio para cargarlos de nuevo
-    // }
+  }
+
+  createStudent(): void {
+    let data: Student = {
+      name: this.formData.value['name'],
+      id: this.formData.value['id'],
+      studentCode: this.formData.value['studentCode'],
+      photo: this.formData.value['photo'],
+      address: this.formData.value['address'],
+      phone: this.formData.value['phone'],
+      gender: this.formData.value['gender'],
+      birthDay: this.formData.value['birthDay'],
+      semester: this.formData.value['semester'],
+      civilStatus: this.formData.value['civilStatus'],
+      ingressDate: this.formData.value['ingressDate'],
+      egressDate: this.formData.value['egressDate'],
+      email: this.formData.value['email'],
+    };
+
+    this.generalService.createStudent(data).subscribe(
+      (res) => {
+        this.hideForm.emit(false);
+        this.reloadTable.emit(true);
+        this.notificacionService.success(
+          'Éxito',
+          'Se ha añadido el nuevo Estudiante.'
+        );
+      },
+      (error) => {
+        this.notificacionService.error(
+          'Error',
+          'Hubo un error al intentar crear el Estudiante'
+        );
+      }
+    );
   }
 }

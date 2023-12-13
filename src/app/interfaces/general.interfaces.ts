@@ -21,7 +21,7 @@ export interface Cohort {
 }
 
 export interface Student {
-  _id: string;
+  _id?: string;
   name: string;
   id: string;
   studentCode: string;
@@ -35,7 +35,7 @@ export interface Student {
   ingressDate: string;
   egressDate: string;
   email: string;
-  __v: number;
+  __v?: number;
 }
 
 export interface Program {

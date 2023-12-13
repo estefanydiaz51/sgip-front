@@ -28,4 +28,10 @@ export class StudentsComponent implements OnInit {
   handleShowForm() {
     this.showForm = true;
   }
+
+  getStudents(): void {
+    this.generalService.getStudents().subscribe((res) => {
+      this.students = res;
+    });
+  }
 }
