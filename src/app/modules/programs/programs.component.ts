@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ProgramsListComponent } from "./components/programs-list/programs-list.component";
 import { ProgramCreateFormComponent } from './components/program-create-form/program-create-form.component';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { GeneralService } from '../../services/general.service';
+
 
 @Component({
     selector: 'app-programs',
@@ -17,4 +19,14 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
         NzButtonModule
     ]
 })
-export class ProgramsComponent { }
+export class ProgramsComponent implements OnInit {
+
+    constructor(private generalService : GeneralService){}
+
+    ngOnInit(): void {
+        this.generalService.getPrograms().subscribe(res=>{
+            console.log('res : ', res);
+        });
+    }
+
+}
