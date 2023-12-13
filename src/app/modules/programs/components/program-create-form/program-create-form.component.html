@@ -26,7 +26,7 @@
         <input 
           nz-input
           formControlName="logo"
-          placeholder="Logo del programa">
+          placeholder="Url de Logo del programa">
       </div>
       <div nz-col nzSpan="12">
         <input 
@@ -53,7 +53,13 @@
           formControlName="numberResolutionOfQualifiedRegistration"
           placeholder="Número de registro">
       </div>
-      <div nz-col nzSpan="12">
+      <div nz-col nzSpan="24">
+        <input 
+          nz-input
+          formControlName="resolutionFile"
+          placeholder="Url de archivo de registro calificado">
+      </div>
+      <!-- <div nz-col nzSpan="12">
         <nz-upload
           style="width:100%;"
           nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
@@ -64,14 +70,14 @@
             Subir archivo
           </button>
         </nz-upload>
-      </div>
+      </div> -->
     </div>
     <div nz-row>
       <div nz-col nzSpan="24" class="buttonContainer">
         <button 
           nz-button
           nzType="primary"
-          disabled="form.invalid"
+          [disabled]="form.invalid"
           (click)="createProgram()">
           <span>Crear</span>
         </button>
