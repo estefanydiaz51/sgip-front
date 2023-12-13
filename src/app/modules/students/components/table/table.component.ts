@@ -15,6 +15,6 @@ export class TableComponent {
   @Input() students: Student[] = [];
 
   ngOnInit(): void {
-    console.log(this.students);
+    //console.log(this.students);
   }
 }
