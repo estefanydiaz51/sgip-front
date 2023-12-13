@@ -39,3 +39,33 @@ export interface Student {
   cohorts: string[];
   __v: number;
 }
+
+export interface Program {
+  cohorts:string[];
+  dateRegistration:string;
+  description:string;
+  email:string;
+  id:string;
+  logo:string;
+  name:string;
+  numberResolutionOfQualifiedRegistration:string;
+  researchLines:string;
+  resolutionFile:string;
+  teachers:string[];
+  __v:number;
+  _id:string;
+}
+
+export interface Teacher {
+  name: string;
+  idCard: string;
+  address: string;
+  phone: string;
+  gender: string;
+  email: string;
+  birthDay: string;
+  academicTraining: string;
+  knowledgeAreas: string[];
+  _id: string;
+  __v: number;
+}
