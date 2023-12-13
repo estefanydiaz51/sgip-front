@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { Cohort, Program } from '../interfaces/general.interfaces';
+import { Cohort, Program, Student, Teacher } from '../interfaces/general.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +29,26 @@ export class GeneralService {
 
   getCoordinators(): Observable<any> {
     return this.httpService.get<any>(environment.apiUrl+'/consult/coordinators');
+  }
+
+  createCohort(cohort:Cohort): Observable<Cohort> {
+    return this.httpService.post<Cohort>(environment.apiUrl+'/create/cohort',cohort);
+  }
+
+  createStudent(student:Student): Observable<Student> {
+    return this.httpService.post<Student>(environment.apiUrl+'/create/students',student);
+  }
+
+  createProgram(program:Program): Observable<Program> {
+    return this.httpService.post<Program>(environment.apiUrl+'/create/program',program);
+  }
+
+  createtTeacher(teacher:Teacher): Observable<Teacher> {
+    return this.httpService.post<Teacher>(environment.apiUrl+'/create/teacher',teacher);
+  }
+
+  createCoordinator(coordinator:any): Observable<any> {
+    return this.httpService.post<any>(environment.apiUrl+'/create/coordinator',coordinator);
   }
 
 }
