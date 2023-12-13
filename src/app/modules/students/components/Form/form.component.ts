@@ -17,6 +17,7 @@ import {
 import { GeneralService } from '../../../../services/general.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { Student } from '../../../../interfaces/general.interfaces';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 
 @Component({
   selector: 'app-form',
@@ -34,6 +35,7 @@ import { Student } from '../../../../interfaces/general.interfaces';
     NzFormModule,
     NzButtonModule,
     NzNotificationModule,
+    NzDatePickerModule
   ],
 })
 export class FormComponent implements OnInit {
@@ -52,10 +54,19 @@ export class FormComponent implements OnInit {
   formInit(): void {
     this.formData = this.fb.group({
       name: ['', [Validators.required]],
-      code: ['', [Validators.required]],
-      numberStudents: ['', [Validators.required]],
-      startDate: ['', [Validators.required]],
-      endDate: ['', [Validators.required]],
+      id: ['', [Validators.required]],
+      studentCode: ['', [Validators.required]],
+      photo: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
+      gender: ['', [Validators.required]],
+      birthDay: ['', [Validators.required]],
+      semester: ['', [Validators.required]],
+      civilStatus: ['', [Validators.required]],
+      ingressDate: ['', [Validators.required]],
+      egressDate: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      cohortId: ['', [Validators.required]]
     });
   }
 
@@ -78,6 +89,7 @@ export class FormComponent implements OnInit {
       ingressDate: this.formData.value['ingressDate'],
       egressDate: this.formData.value['egressDate'],
       email: this.formData.value['email'],
+      cohortId: this.formData.value['cohortId']
     };
 
     this.generalService.createStudent(data).subscribe(
@@ -97,4 +109,5 @@ export class FormComponent implements OnInit {
       }
     );
   }
+
 }

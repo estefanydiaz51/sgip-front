@@ -36,6 +36,8 @@ export interface Student {
   egressDate: string;
   email: string;
   __v?: number;
+  cohortId?:string;
+  cohort?:string;
 }
 
 export interface Program {
