@@ -20,12 +20,17 @@ import { Program } from '../../interfaces/general.interfaces';
 })
 export class ProgramsComponent implements OnInit {
 
-    programs!:Program[];
+    programs!: Program[];
+    showForm=false;
 
-    constructor(private generalService : GeneralService){}
+    constructor(private generalService: GeneralService) { }
 
     ngOnInit(): void {
-        this.generalService.getPrograms().subscribe(res=>{
+        this.getPrograms()
+    }
+
+    getPrograms(): void {
+        this.generalService.getPrograms().subscribe(res => {
             this.programs = res;
         });
     }

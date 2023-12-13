@@ -39,19 +39,19 @@ export interface Student {
 }
 
 export interface Program {
-  cohorts: string[];
-  dateRegistration: string;
-  description: string;
-  email: string;
-  id: string;
-  logo: string;
-  name: string;
-  numberResolutionOfQualifiedRegistration: string;
-  researchLines: string;
-  resolutionFile: string;
-  teachers: string[];
-  __v: number;
-  _id: string;
+  cohorts?:string[];
+  dateRegistration:string;
+  description:string;
+  email:string;
+  id:string;
+  logo:string;
+  name:string;
+  numberResolutionOfQualifiedRegistration:string;
+  researchLines:string;
+  resolutionFile:string;
+  teachers?:string[];
+  __v?:number;
+  _id?:string;
 }
 
 export interface Teacher {

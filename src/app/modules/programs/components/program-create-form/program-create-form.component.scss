@@ -1,3 +1,31 @@
 :host {
   display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formContainer{
+  padding: 20px;
+}
+
+.title{
+  background-color:#00923F;
+  color: white;
+  padding: 10px;
+}
+
+.generalContainer{
+  max-width: 800px;
+  border-width: thin;
+  border-style: solid;
+  border-color: lightgray;
+  border-radius: 8px;
+}
+
+.buttonContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }

@@ -1,0 +1,81 @@
+<div nz-row class="generalContainer">
+  <div nz-col nzSpan="24" class="title">
+    Crear nuevo programa
+  </div>
+  <div nz-col nzSpan="24" class="formContainer">
+    <div nz-row nz-form [formGroup]="form" [nzGutter]="[20,20]">
+      <div nz-col nzSpan="12">
+        <input 
+          nz-input
+          formControlName="name"
+          placeholder="Nombre del programa">
+      </div>
+      <div nz-col nzSpan="12">
+        <input 
+          nz-input
+          formControlName="id"
+          placeholder="Id del programa">
+      </div>
+      <div nz-col nzSpan="12">
+        <input 
+          nz-input
+          formControlName="description"
+          placeholder="Description del programa">
+      </div>
+      <div nz-col nzSpan="12">
+        <input 
+          nz-input
+          formControlName="logo"
+          placeholder="Logo del programa">
+      </div>
+      <div nz-col nzSpan="12">
+        <input 
+          nz-input
+          formControlName="email"
+          placeholder="Correo">
+      </div>
+      <div nz-col nzSpan="12">
+        <input 
+          nz-input
+          formControlName="researchLines"
+          placeholder="Líneas de investigación">
+      </div>
+      <div nz-col nzSpan="12">
+        <nz-date-picker 
+          style="width:100%;"
+          formControlName="dateRegistration" 
+          nzPlaceHolder="Fecha de registro">
+        </nz-date-picker>
+      </div>
+      <div nz-col nzSpan="12">
+        <input 
+          nz-input
+          formControlName="numberResolutionOfQualifiedRegistration"
+          placeholder="Número de registro">
+      </div>
+      <div nz-col nzSpan="12">
+        <nz-upload
+          style="width:100%;"
+          nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+          [nzHeaders]="{ authorization: 'authorization-text' }"
+          (nzChange)="handleChange($event)">
+          <button nz-button style="width:100%;">
+            <span nz-icon nzType="upload"></span>
+            Subir archivo
+          </button>
+        </nz-upload>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24" class="buttonContainer">
+        <button 
+          nz-button
+          nzType="primary"
+          disabled="form.invalid"
+          (click)="createProgram()">
+          <span>Crear</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

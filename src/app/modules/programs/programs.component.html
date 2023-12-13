@@ -2,14 +2,21 @@
   <div *ngIf="programs && programs.length<=1" nz-col nzSpan="24" class="buttonContainer">
     <button 
       nz-button
-      nzType="primary">
+      nzType="primary"
+      (click)="showForm=true">
       <span>Crear programa</span>
     </button>
   </div>
   <app-programs-list  
+    *ngIf="!showForm"
     class="programList"
     nz-col nzSpan="24"
     [programs]="programs">
   </app-programs-list>
-  <app-program-create-form nz-col nzSpan="24"></app-program-create-form>
+  <app-program-create-form 
+    *ngIf="showForm"
+    nz-col nzSpan="24"
+    (reloadTable)="getPrograms()"
+    (hideForm)="showForm=$event">
+  </app-program-create-form>
 </div>
