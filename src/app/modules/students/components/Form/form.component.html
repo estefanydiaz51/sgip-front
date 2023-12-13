@@ -2,37 +2,97 @@
   <div class="header">
     Registrar nuevo estudiante
   </div>
-  <form nz-form>
+  <form nz-form  class="form">
+    <div nz-row>
+      <div nz-col>
+        <nz-form-item>
+          <nz-form-label [nzSpan]="12" nzFor="name">Nombre estudiante</nz-form-label>
+          <nz-form-control [nzSpan]="30">
+            <input nz-input name="name" type="text" id="name">
+          </nz-form-control>
+        </nz-form-item >
+        <nz-form-item>
+          <nz-form-label [nzSpan]="12" nzFor="id">Número de documento</nz-form-label>
+          <nz-form-control [nzSpan]="30">
+            <input nz-input name="id" type="text" id="id">
+          </nz-form-control>
+        </nz-form-item >
+        <nz-form-item>
+          <nz-form-label [nzSpan]="12" nzFor="studentCode">Código</nz-form-label>
+          <nz-form-control [nzSpan]="30">
+            <input nz-input name="studentCode" type="text" id="studentCode">
+          </nz-form-control>
+        </nz-form-item >
+        <nz-form-item>
+          <nz-form-label [nzSpan]="12" nzFor="address">Dirección de residencia</nz-form-label>
+          <nz-form-control [nzSpan]="30">
+            <input nz-input name="address" type="text" id="address">
+          </nz-form-control>
+        </nz-form-item >
+        <nz-form-item>
+          <nz-form-label [nzSpan]="12" nzFor="phone">Telefono</nz-form-label>
+          <nz-form-control [nzSpan]="30">
+            <input nz-input name="phone" type="text" id="phone">
+          </nz-form-control>
+        </nz-form-item >
+        <nz-form-item>
+          <nz-form-label [nzSpan]="12" nzFor="email">Correo electronico</nz-form-label>
+          <nz-form-control [nzSpan]="30">
+            <input nz-input name="email" type="text" id="email">
+          </nz-form-control>
+        </nz-form-item >
+        <nz-form-item>
+          <nz-form-label [nzSpan]="12" nzFor="gender">Genero</nz-form-label>
+          <nz-form-control [nzSpan]="30">
+            <input nz-input name="gender" type="text" id="gender">
+          </nz-form-control>
+        </nz-form-item >
+      </div>
+   <div nz-col>
     <nz-form-item>
-      <nz-form-label [nzSpan]="6" nzFor="name">Nombre</nz-form-label>
-      <nz-form-control [nzSpan]="14">
-        <input nz-input name="name" type="name" id="name">
+      <nz-form-label [nzSpan]="12" nzFor="birthDay">Fecha de nacimiento</nz-form-label>
+      <nz-form-control [nzSpan]="30">
+        <input nz-input name="birthDay" type="text" id="birthDay">
       </nz-form-control>
     </nz-form-item >
     <nz-form-item>
-      <nz-form-label [nzSpan]="6" nzFor="code">Código</nz-form-label>
-      <nz-form-control [nzSpan]="14">
-        <input nz-input name="code" type="code" id="code">
+      <nz-form-label [nzSpan]="12" nzFor="semester">Semestre</nz-form-label>
+      <nz-form-control [nzSpan]="30">
+        <input nz-input name="semester" type="text" id="semester">
       </nz-form-control>
     </nz-form-item >
     <nz-form-item>
-      <nz-form-label [nzSpan]="6" nzFor="students"># Estudiantes</nz-form-label>
-      <nz-form-control [nzSpan]="14">
-        <input nz-input name="students" type="students" id="students">
+      <nz-form-label [nzSpan]="12" nzFor="civilStatus">Estado civil</nz-form-label>
+      <nz-form-control [nzSpan]="30">
+        <input nz-input name="civilStatus" type="text" id="civilStatus">
       </nz-form-control>
     </nz-form-item >
     <nz-form-item>
-      <nz-form-label [nzSpan]="6" nzFor="startDate">Fecha de inicio</nz-form-label>
-      <nz-form-control [nzSpan]="14">
-        <input nz-input name="startDate" type="startDate" id="startDate">
+      <nz-form-label [nzSpan]="12" nzFor="ingressDate">Fecha de ingreso</nz-form-label>
+      <nz-form-control [nzSpan]="30">
+        <input nz-input name="ingressDate" type="text" id="ingressDate">
       </nz-form-control>
     </nz-form-item >
     <nz-form-item>
-      <nz-form-label [nzSpan]="6" nzFor="endDate">Fecha de Fin</nz-form-label>
-      <nz-form-control [nzSpan]="14">
-        <input nz-input name="endDate" type="endDate" id="endDate">
+      <nz-form-label [nzSpan]="12" nzFor="egressDate">Fecha de egreso</nz-form-label>
+      <nz-form-control [nzSpan]="30">
+        <input nz-input name="egressDate" type="text" id="egressDate">
       </nz-form-control>
     </nz-form-item >
+    <nz-form-item>
+      <nz-form-label [nzSpan]="12" nzFor="cohort">Cohorte</nz-form-label>
+      <nz-form-control [nzSpan]="30">
+        <input nz-input name="cohort" type="text" id="cohort">
+      </nz-form-control>
+    </nz-form-item >
+    <nz-form-item>
+      <nz-form-label [nzSpan]="12" nzFor="photo">Foto</nz-form-label>
+      <nz-form-control [nzSpan]="30">
+        <input nz-input name="photo" type="text" id="photo">
+      </nz-form-control>
+    </nz-form-item >
+   </div>
+    </div>
     <nz-form-item nz-row class="register-area">
       <nz-form-control [nzSpan]="14" [nzOffset]="6">
         <button nz-button nzType="primary">Crear Estudiante</button>

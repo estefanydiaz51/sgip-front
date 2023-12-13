@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="header">
+    Registrar nuevo estudiante
+  </div>
+  <form nz-form class="form">
+   <div nz-row>
+    <div nz-col >
+      <nz-form-item>
+        <nz-form-label [nzSpan]="10" nzFor="name">Nombre docente</nz-form-label>
+        <nz-form-control [nzSpan]="20">
+          <input nz-input name="name" type="name" id="name">
+        </nz-form-control>
+      </nz-form-item >
+      <nz-form-item>
+        <nz-form-label [nzSpan]="10" nzFor="idCard">Documento</nz-form-label>
+        <nz-form-control [nzSpan]="20">
+          <input nz-input name="idCard" type="text" id="idCard">
+        </nz-form-control>
+      </nz-form-item >
+      <nz-form-item>
+        <nz-form-label [nzSpan]="10" nzFor="adress">Dirección</nz-form-label>
+        <nz-form-control [nzSpan]="20">
+          <input nz-input name="adress" type="text" id="adress">
+        </nz-form-control>
+      </nz-form-item >
+      <nz-form-item>
+        <nz-form-label [nzSpan]="10" nzFor="email">Correo</nz-form-label>
+        <nz-form-control [nzSpan]="20">
+          <input nz-input name="email" type="email" id="email">
+        </nz-form-control>
+      </nz-form-item >
+      <nz-form-item>
+        <nz-form-label [nzSpan]="10" nzFor="phone">Telefono</nz-form-label>
+        <nz-form-control [nzSpan]="20">
+          <input nz-input name="phone" type="text" id="phone">
+        </nz-form-control>
+      </nz-form-item >
+    </div>
+
+    <div nz-col class="margin">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="14" nzFor="academicTraining">Formación academica</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input name="academicTraining" type="text" id="academicTraining">
+        </nz-form-control>
+      </nz-form-item >
+      <nz-form-item>
+        <nz-form-label [nzSpan]="14" nzFor="birthDay">Fecha de nacimiento</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input name="birthDay" type="text" id="birthDay">
+        </nz-form-control>
+      </nz-form-item >
+      <nz-form-item>
+        <nz-form-label [nzSpan]="14" nzFor="knowledgeAreas">Areas de conocimiento</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input name="knowledgeAreas" type="text" id="knowledgeAreas">
+        </nz-form-control>
+      </nz-form-item >
+      <nz-form-item>
+        <nz-form-label [nzSpan]="14" nzFor="gender">Genero</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input name="gender" type="text" id="gender">
+        </nz-form-control>
+      </nz-form-item >
+    </div>
+   </div>
+   
+    
+    <nz-form-item nz-row class="register-area">
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button nz-button nzType="primary">Crear Estudiante</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+  
+</div>

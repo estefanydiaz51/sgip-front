@@ -1,0 +1,21 @@
+<div nz-row class="generalContainer">
+  <div nz-col nzSpan="24" class="buttonContainer">
+    <button 
+      nz-button
+      class="register-button"
+      nzType="primary"
+      (click)="handleShowForm()"
+      >
+      <span>Registrar Docente</span>
+    </button>
+  </div>
+
+  <div *ngIf="!showForm">
+    <app-table
+      *ngIf="teachers.length>0"
+      [teachers]="teachers">
+    </app-table>
+  </div>
+  
+  <app-form *ngIf="showForm"></app-form>
+</div>
