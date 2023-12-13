@@ -17,5 +17,9 @@
     </app-table>
   </div>
   
-  <app-form *ngIf="showForm"></app-form>
+  <app-form 
+    *ngIf="showForm"
+    (reloadTable)="getTeachers()"
+    (hideForm)="showForm=$event">
+  </app-form>
 </div>

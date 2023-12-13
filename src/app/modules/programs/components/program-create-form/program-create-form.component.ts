@@ -8,8 +8,7 @@ import { NzNotificationModule, NzNotificationService } from 'ng-zorro-antd/notif
 import { Program } from '../../../../interfaces/general.interfaces';
 import { GeneralService } from '../../../../services/general.service';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
-import { NzUploadChangeParam, NzUploadModule } from 'ng-zorro-antd/upload';
-import { NzMessageService } from 'ng-zorro-antd/message';
+import { NzUploadModule } from 'ng-zorro-antd/upload';
 
 @Component({
   selector: 'app-program-create-form',
@@ -31,8 +30,7 @@ export class ProgramCreateFormComponent implements OnInit {
   constructor(
     private fb : FormBuilder, 
     private generalService: GeneralService, 
-    private notificacionService: NzNotificationService,
-    private msg: NzMessageService){}
+    private notificacionService: NzNotificationService){}
 
   ngOnInit(): void {
     this.formInit();

@@ -64,6 +64,6 @@ export interface Teacher {
   birthDay: string;
   academicTraining: string;
   knowledgeAreas: string[];
-  _id: string;
-  __v: number;
+  _id?: string;
+  __v?: number;
 }

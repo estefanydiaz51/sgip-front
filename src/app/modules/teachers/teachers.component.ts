@@ -21,6 +21,10 @@ export class TeachersComponent implements OnInit {
   constructor(private generalService: GeneralService) {}
 
   ngOnInit(): void {
+    this.getTeachers();
+  }
+
+  getTeachers(): void{
     this.generalService.getTeachers().subscribe((res) => {
       this.teachers = res;
     });
