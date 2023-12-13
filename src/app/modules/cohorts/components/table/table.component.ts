@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
-
+import { Cohort } from '../../../../interfaces/general.interfaces';
 @Component({
   selector: 'app-table',
   standalone: true,
@@ -11,4 +11,6 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
   styleUrl: './table.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TableComponent {}
+export class TableComponent {
+  @Input() cohorts !: Cohort[];
+}

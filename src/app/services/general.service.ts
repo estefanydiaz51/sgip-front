@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { Cohort } from '../interfaces/general.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,8 @@ export class GeneralService {
 
   constructor(private httpService : HttpClient) { }
 
-  getCohorts(): Observable<any> {
-    return this.httpService.get<any>(environment.apiUrl+'/consult/cohorts');
+  getCohorts(): Observable<Cohort[]> {
+    return this.httpService.get<Cohort[]>(environment.apiUrl+'/consult/cohorts');
   }
 
   getStudents(): Observable<any> {

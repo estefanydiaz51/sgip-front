@@ -7,6 +7,10 @@
       <span>Registrar Cohorte</span>
     </button>
   </div>
-  <app-table />
+  <app-table
+    *ngIf="cohorts.length>0"
+    [cohorts]="cohorts">
+  </app-table>
+
 
 </div>
