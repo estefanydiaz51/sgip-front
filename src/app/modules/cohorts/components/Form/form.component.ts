@@ -17,6 +17,8 @@ import {
 import { Cohort } from '../../../../interfaces/general.interfaces';
 import { GeneralService } from '../../../../services/general.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 
 @Component({
   selector: 'app-form',
@@ -34,6 +36,8 @@ import { NzMessageService } from 'ng-zorro-antd/message';
     NzFormModule,
     NzButtonModule,
     NzNotificationModule,
+    NzDatePickerModule,
+    NzGridModule,
   ],
 })
 export class FormComponent implements OnInit {

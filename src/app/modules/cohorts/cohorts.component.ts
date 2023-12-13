@@ -28,4 +28,10 @@ export class CohortsComponent implements OnInit {
   handleShowForm() {
     this.showForm = true;
   }
+
+  getCohorts(): void {
+    this.generalService.getCohorts().subscribe((res) => {
+      this.cohorts = res;
+    });
+  }
 }
