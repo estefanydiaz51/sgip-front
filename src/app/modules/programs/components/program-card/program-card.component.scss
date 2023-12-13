@@ -27,3 +27,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.logo{
+  object-fit: cover;
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+}

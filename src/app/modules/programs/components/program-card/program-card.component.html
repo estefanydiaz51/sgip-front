@@ -3,7 +3,12 @@
     {{program.name}}
   </div>
   <div nz-col nzSpan="12">
-    <img [src]="program.logo" alt="">
+    <!-- <img style="width: 100px;height: 100px;" [src]="program.logo" alt="sin imagen"> -->
+    <img 
+      class="logo" 
+      src="{{ program.logo }}" 
+      onerror="this.onerror=null; this.src='https://cdn.vectorstock.com/i/preview-1x/65/30/default-image-icon-missing-picture-page-vector-40546530.jpg';" 
+      alt="sin imagen">
   </div>
   <div nz-col nzSpan="24" class="label textEllipsis">
     Descripción :
