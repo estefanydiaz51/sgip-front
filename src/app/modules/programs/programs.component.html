@@ -1,11 +1,15 @@
 <div nz-row class="generalContainer">
-  <div nz-col nzSpan="24" class="buttonContainer">
+  <div *ngIf="programs && programs.length<=1" nz-col nzSpan="24" class="buttonContainer">
     <button 
       nz-button
       nzType="primary">
       <span>Crear programa</span>
     </button>
   </div>
-  <app-programs-list nz-col nzSpan="24"></app-programs-list>
+  <app-programs-list  
+    class="programList"
+    nz-col nzSpan="24"
+    [programs]="programs">
+  </app-programs-list>
   <app-program-create-form nz-col nzSpan="24"></app-program-create-form>
 </div>

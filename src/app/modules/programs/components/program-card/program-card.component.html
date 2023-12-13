@@ -1,3 +1,44 @@
-<div class="cardContainer">
-  
+<div class="cardContainer" nz-row>
+  <div nz-col nzSpan="12" class="title textEllipsis">
+    {{program.name}}
+  </div>
+  <div nz-col nzSpan="12">
+    <img [src]="program.logo" alt="">
+  </div>
+  <div nz-col nzSpan="24" class="label textEllipsis">
+    Descripción :
+  </div>
+  <div nz-col nzSpan="24" class="textEllipsis">
+    {{program.description}}
+  </div>
+  <div nz-col nzSpan="24" class="label textEllipsis">
+    Correo :
+  </div>
+  <div nz-col nzSpan="24" class="textEllipsis">
+    {{program.email}}
+  </div>
+  <div nz-col nzSpan="24" class="label textEllipsis">
+    Líneas de investigación : 
+  </div>
+  <div nz-col nzSpan="24" class="textEllipsis">
+    {{program.researchLines}}
+  </div>
+  <div nz-col nzSpan="24" class="label textEllipsis">
+    Fecha de registro calificado: 
+  </div>
+  <div nz-col nzSpan="24" class="textEllipsis">
+    {{program.dateRegistration}}
+  </div>
+  <div nz-col nzSpan="24" class="label textEllipsis">
+    Número de resolución de registro calificado : 
+  </div>
+  <div nz-col nzSpan="24" class="textEllipsis">
+    {{program.numberResolutionOfQualifiedRegistration}}
+  </div>
+  <div nz-col nzSpan="24" class="label textEllipsis">
+    Archivo de resolución de registro calificado : 
+  </div>
+  <div nz-col nzSpan="24" class="textEllipsis">
+    <a [href]="program.resolutionFile">{{program.resolutionFile}}</a>
+  </div>
 </div>

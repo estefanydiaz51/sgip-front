@@ -1,3 +1,12 @@
 <div class="generalContainer">
-  
+  <div nz-row *ngIf="programs">
+    <app-program-card
+      [program]="programs[0]"
+      nz-col nzSpan="12">
+    </app-program-card>
+    <app-program-card
+      [program]="programs[1]"
+      nz-col nzSpan="12">
+    </app-program-card>
+  </div>
 </div>

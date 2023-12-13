@@ -1,3 +1,28 @@
 :host {
   display: block;
 }
+
+.cardContainer{
+  padding: 20px;
+  margin: 10px;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 12px;
+  box-shadow: 3px 5px 4px lightgray;
+  border-color: gray;
+}
+
+.title{
+  font-weight: 700;
+  font-size: large;
+}
+
+.label{
+  font-weight: 700;
+}
+
+.textEllipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

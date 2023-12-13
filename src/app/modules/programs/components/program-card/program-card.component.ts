@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Program } from '../../../../interfaces/general.interfaces';
 
 @Component({
   selector: 'app-program-card',
@@ -9,6 +10,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   ],
   templateUrl:'./program-card.component.html',
   styleUrl: './program-card.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProgramCardComponent { }
+export class ProgramCardComponent { 
+  @Input() program!:Program;
+}

@@ -1,5 +1,8 @@
 :host {
-  display: block;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .buttonContainer{
@@ -7,4 +10,10 @@
   justify-content: center;
   align-items: center;
   padding: 30px;
+}
+
+.programList{
+  display: block;
+  overflow-y: scroll;
+  max-height: 65vh;
 }

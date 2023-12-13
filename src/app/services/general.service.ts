@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { Cohort } from '../interfaces/general.interfaces';
+import { Cohort, Program } from '../interfaces/general.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +19,8 @@ export class GeneralService {
     return this.httpService.get<any>(environment.apiUrl+'/consult/students');
   }
 
-  getPrograms(): Observable<any> {
-    return this.httpService.get<any>(environment.apiUrl+'/consult/programs');
+  getPrograms(): Observable<Program[]> {
+    return this.httpService.get<Program[]>(environment.apiUrl+'/consult/programs');
   }
 
   getTeachers(): Observable<any> {
