@@ -16,8 +16,10 @@ import {
 } from 'ng-zorro-antd/notification';
 import { GeneralService } from '../../../../services/general.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { Student } from '../../../../interfaces/general.interfaces';
+import { Cohort, Student } from '../../../../interfaces/general.interfaces';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+
 
 @Component({
   selector: 'app-form',
@@ -35,7 +37,8 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
     NzFormModule,
     NzButtonModule,
     NzNotificationModule,
-    NzDatePickerModule
+    NzDatePickerModule,
+    NzSelectModule
   ],
 })
 export class FormComponent implements OnInit {
@@ -43,6 +46,7 @@ export class FormComponent implements OnInit {
 
   @Output() reloadTable = new EventEmitter<boolean>();
   @Output() hideForm = new EventEmitter<boolean>();
+  cohorts: Cohort[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -72,6 +76,7 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.formInit();
+    this.getCohorts();
   }
 
   createStudent(): void {
@@ -108,6 +113,12 @@ export class FormComponent implements OnInit {
         );
       }
     );
+  }
+
+  getCohorts(): void {
+    this.generalService.getCohorts().subscribe((res) => {
+      this.cohorts = res;
+    });
   }
 
 }

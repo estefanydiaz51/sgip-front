@@ -88,7 +88,19 @@
         <nz-form-item>
           <nz-form-label [nzSpan]="12" nzFor="cohort">Cohorte</nz-form-label>
           <nz-form-control [nzSpan]="30">
-            <input nz-input formControlName="cohortId" name="cohort" type="text" id="cohort">
+            <nz-select
+              nzPlaceHolder="Seleccione cohorte"
+              formControlName="cohortId"
+              autocomplete="off"
+              name="cohort"
+              id="cohort">
+              <nz-option
+                *ngFor="let cohort of cohorts"
+                [nzLabel]="cohort.name"
+                [nzValue]="cohort._id"
+                >
+              </nz-option>
+            </nz-select>
           </nz-form-control>
         </nz-form-item>
         <nz-form-item>
