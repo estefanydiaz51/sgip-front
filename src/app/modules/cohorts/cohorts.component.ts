@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   imports: [
     CommonModule,
   ],
-  template: `<p>cohorts works!</p>`,
+  templateUrl: './cohorts.component.html',
   styleUrl: './cohorts.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
