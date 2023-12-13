@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -17,7 +17,6 @@ import {
 import { Cohort } from '../../../../interfaces/general.interfaces';
 import { GeneralService } from '../../../../services/general.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-form',
@@ -40,8 +39,8 @@ import { EventEmitter } from 'stream';
 export class FormComponent implements OnInit {
   formData!: FormGroup;
 
-  // @Output() reloadTable = new EventEmitter<boolean>();
-  // @Output() hideForm = new EventEmitter<boolean>();
+  @Output() reloadTable = new EventEmitter<boolean>();
+  @Output() hideForm = new EventEmitter<boolean>();
 
   constructor(
     private fb: FormBuilder,
@@ -75,11 +74,11 @@ export class FormComponent implements OnInit {
 
     this.generalService.createCohort(data).subscribe(
       (res) => {
-        // this.hideForm.emit(false);
-        // this.reloadTable.emit(true);
+        this.hideForm.emit(false);
+        this.reloadTable.emit(true);
         this.notificacionService.success(
           'Éxito',
-          'Se ah añadido el nuevo Cohorte.'
+          'Se ha añadido el nuevo Cohorte.'
         );
       },
       (error) => {
