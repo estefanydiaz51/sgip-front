@@ -1,21 +1,23 @@
-<nz-table #basicTable [nzData]="teachers">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th># Documento</th>
-      <th>Correo</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let data of basicTable.data">
-      <td>{{data.name}}</td>
-      <td>{{data.idCard}}</td>
-      <td>{{data.email}}</td>
-      <td class="actions">
-        <a><span nz-icon nzType="edit" nzTheme="outline"></span></a>
-        <a><span nz-icon nzType="eye-invisible" nzTheme="outline"></span></a>
-      </td>
-    </tr>
-  </tbody>
-</nz-table>
+<div class="container-table">
+  <nz-table #basicTable [nzData]="teachers">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th># Documento</th>
+        <th>Correo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{data.name}}</td>
+        <td>{{data.idCard}}</td>
+        <td>{{data.email}}</td>
+        <td class="actions">
+          <a><span nz-icon nzType="edit" nzTheme="outline"></span></a>
+          <a><span nz-icon nzType="eye-invisible" nzTheme="outline"></span></a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

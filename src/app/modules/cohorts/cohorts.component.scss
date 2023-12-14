@@ -2,6 +2,12 @@
   display: block;
 }
 
+.generalContainer {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+}
+
 .register-button{
   padding: 20px;
   text-align: center;
@@ -11,7 +17,7 @@
 }
 
 .buttonContainer {
-  margin-top: 20px;
+  margin-top: 0;
   margin-bottom: 30px;
   display: flex;
   text-align: center;

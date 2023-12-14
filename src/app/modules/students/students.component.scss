@@ -3,7 +3,6 @@
 }
 
 .register-button{
-  padding: 20px;
   text-align: center;
   justify-content: center;
   display: flex;
@@ -16,4 +15,10 @@
   display: flex;
   text-align: center;
   justify-content: center;
+}
+
+.generalContainer {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
 }
