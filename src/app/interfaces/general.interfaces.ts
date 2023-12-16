@@ -18,6 +18,7 @@ export interface Cohort {
   startDate: string;
   __v?: number;
   _id?: string;
+  teachers?: string[];
 }
 
 export interface Student {
@@ -38,6 +39,7 @@ export interface Student {
   __v?: number;
   cohortId?:string;
   cohort?:string;
+  programId?:string;
 }
 
 export interface Program {

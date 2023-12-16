@@ -51,4 +51,25 @@ export class GeneralService {
     return this.httpService.post<any>(environment.apiUrl+'/create/coordinator',coordinator);
   }
 
+  updateCohort(cohort:Cohort): Observable<Cohort> {
+    return this.httpService.post<Cohort>(environment.apiUrl+'/update/cohort',cohort);
+  }
+
+  updateStudent(student:Student): Observable<Student> {
+    return this.httpService.post<Student>(environment.apiUrl+'/update/students',student);
+  }
+
+  updateProgram(program:Program): Observable<Program> {
+    return this.httpService.post<Program>(environment.apiUrl+'/update/program',program);
+  }
+
+  updateTeacher(teacher:Teacher): Observable<Teacher> {
+    return this.httpService.post<Teacher>(environment.apiUrl+'/update/teacher',teacher);
+  }
+
+  updateCoordinator(coordinator:any): Observable<any> {
+    return this.httpService.post<any>(environment.apiUrl+'/update/coordinator',coordinator);
+  }
+
+
 }
