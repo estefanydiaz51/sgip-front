@@ -11,7 +11,9 @@
     *ngIf="!showForm"
     class="programList"
     nz-col nzSpan="24"
-    [programs]="programs">
+    [programs]="programs"
+    [cohorts]="cohorts"
+    (getPrograms)="getPrograms()">
   </app-programs-list>
   <app-program-create-form 
     *ngIf="showForm"

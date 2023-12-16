@@ -52,11 +52,11 @@ export interface Student {
 }
 
 export interface Program {
-  cohorts?: string[];
+  cohortId?: string[];
   dateRegistration: string;
   description: string;
   email: string;
-  id: string;
+  id?: string;
   logo: string;
   name: string;
   numberResolutionOfQualifiedRegistration: string;
@@ -65,6 +65,8 @@ export interface Program {
   teachers?: string[];
   __v?: number;
   _id?: string;
+  programId?:string;
+  cohorts?:string[];
 }
 
 export interface Teacher {

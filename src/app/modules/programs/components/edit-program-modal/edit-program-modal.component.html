@@ -1,0 +1,71 @@
+<nz-modal [(nzVisible)]="isVisible" nzClosable="false" [nzWidth]="1000">
+  <div *nzModalTitle class="title">
+    Editar programa
+  </div>
+  <div *nzModalContent>
+    <div nz-row>
+      <div nz-col nzSpan="24" class="formContainer">
+        <div nz-row nz-form [formGroup]="form" [nzGutter]="[20,20]">
+          <div nz-col nzSpan="12">
+            <input nz-input formControlName="name" placeholder="Nombre del programa">
+          </div>
+          <div nz-col nzSpan="12">
+            <input nz-input formControlName="id" placeholder="Id del programa">
+          </div>
+          <div nz-col nzSpan="12">
+            <input nz-input formControlName="description" placeholder="Description del programa">
+          </div>
+          <div nz-col nzSpan="12">
+            <input nz-input formControlName="logo" placeholder="Url de Logo del programa">
+          </div>
+          <div nz-col nzSpan="12">
+            <input nz-input formControlName="email" placeholder="Correo">
+          </div>
+          <div nz-col nzSpan="12">
+            <input nz-input formControlName="researchLines" placeholder="Líneas de investigación">
+          </div>
+          <div nz-col nzSpan="12">
+            <nz-date-picker style="width:100%;" formControlName="dateRegistration" nzPlaceHolder="Fecha de registro">
+            </nz-date-picker>
+          </div>
+          <div nz-col nzSpan="12">
+            <input nz-input formControlName="numberResolutionOfQualifiedRegistration" placeholder="Número de registro">
+          </div>
+          <div nz-col nzSpan="12">
+            <input nz-input formControlName="resolutionFile" placeholder="Url de archivo de registro calificado">
+          </div>
+          <div nz-col nzSpan="12">
+            <nz-select 
+            style="width: 100%;"
+              nzMode="multiple" 
+              nzPlaceHolder="Seleccione cohortes"
+              [ngModelOptions]="{standalone: true}"
+              name="cohorts"
+              [(ngModel)]="listOfOptions" 
+              id="cohorts">
+              <nz-option 
+                *ngFor="let option of listOfOptions" 
+                [nzLabel]="option.name" 
+                [nzValue]="option._id">
+              </nz-option>
+            </nz-select>          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *nzModalFooter>
+    <div nz-row>
+      <div nz-col nzSpan="12" class="centerContent">
+        <button nz-button nzType="default" (click)="hideModalEvent.emit(false)">
+          <span>Cancelar</span>
+        </button>
+      </div>
+      <div nz-col nzSpan="12" class="centerContent">
+        <button nz-button nzType="primary" [disabled]="form.invalid" (click)="updateProgram()">
+          <span>Guardar cambios</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nz-modal>

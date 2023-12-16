@@ -2,11 +2,15 @@
   <div nz-row *ngIf="programs">
     <app-program-card
       [program]="programs[0]"
-      nz-col [nzSpan]="12">
+      nz-col [nzSpan]="12"
+      (getPrograms)="getPrograms.emit(true)"
+      [cohorts]="cohorts">
     </app-program-card>
     <app-program-card
       [program]="programs[1]"
-      nz-col [nzSpan]="12">
+      nz-col [nzSpan]="12"
+      (getPrograms)="getPrograms.emit(true)"
+      [cohorts]="cohorts">
     </app-program-card>
   </div>
 </div>

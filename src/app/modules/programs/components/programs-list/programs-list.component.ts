@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import {  Component, Input } from '@angular/core';
+import {  Component, EventEmitter, Input, Output } from '@angular/core';
 import { ProgramCardComponent } from '../program-card/program-card.component';
-import { Program } from '../../../../interfaces/general.interfaces';
+import { Cohort, Program } from '../../../../interfaces/general.interfaces';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 
 @Component({
@@ -17,4 +17,7 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 })
 export class ProgramsListComponent {
   @Input() programs!:Program[];
+  @Input() cohorts!:Cohort[];
+  editProgramData!: Program;
+  @Output() getPrograms = new EventEmitter<boolean>();
 }

@@ -12,6 +12,9 @@ export class GeneralService {
   userData = new BehaviorSubject<UserData|null>(null);
   userData$ = this.userData.asObservable();
 
+  reloadProgramList = new BehaviorSubject<boolean>(false);
+  reloadProgramList$ = this.reloadProgramList.asObservable();
+
   constructor(private httpService : HttpClient) { }
 
 

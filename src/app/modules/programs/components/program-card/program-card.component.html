@@ -1,4 +1,4 @@
-<div class="cardContainer" nz-row>
+<div class="cardContainer" nz-row (click)="editProgramModalVisible=true">
   <div nz-col nzSpan="12" class="title textEllipsis">
     {{program.name}}
   </div>
@@ -32,7 +32,7 @@
     Fecha de registro calificado: 
   </div>
   <div nz-col nzSpan="24" class="textEllipsis">
-    {{program.dateRegistration}}
+    {{program.dateRegistration| dateToDayMonthYear : false:true}}
   </div>
   <div nz-col nzSpan="24" class="label textEllipsis">
     Número de resolución de registro calificado : 
@@ -46,4 +46,13 @@
   <div nz-col nzSpan="24" class="textEllipsis">
     <a [href]="program.resolutionFile">{{program.resolutionFile}}</a>
   </div>
+  @if(cohorts){
+    <app-edit-program-modal
+      [programData]="program"
+      [isVisible]="editProgramModalVisible"
+      (hideModalEvent)="editProgramModalVisible=$event"
+      (reloadtable)="getPrograms.emit(true)"
+      [listOfOptions]="cohorts"
+    ></app-edit-program-modal>
+  }
 </div>
