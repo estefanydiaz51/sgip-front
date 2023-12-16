@@ -1,0 +1,27 @@
+
+
+<div nz-row class="generalContainer">
+  <div nz-col nzSpan="24" class="buttonContainer">
+    <button 
+      nz-button
+      class="register-button"
+      nzType="primary"
+      (click)="handleShowForm()"
+      >
+      <span>Registrar coordinador</span>
+    </button>
+  </div>
+
+  <div *ngIf="!showForm">
+    <app-coordinators-table
+      *ngIf="coordinatoors.length>0"
+      [coordinatoors]="coordinatoors">
+    </app-coordinators-table>
+  </div>
+  
+  <app-coordinators-form
+    *ngIf="showForm"
+    (reloadTable)="getCoordinators()"
+    (hideForm)="showForm=$event">   
+  </app-coordinators-form>
+</div>

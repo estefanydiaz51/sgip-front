@@ -83,3 +83,16 @@ export interface Teacher {
   _id?: string;
   __v?: number;
 }
+export interface Coordinator {
+  _id: string[];
+  name: string[];
+  idCard: string[];
+  address: string[];
+  phone: string[];
+  gender: string[];
+  email: string[];
+  birthDay: string[];
+  academicTraining: string[];
+  knowledgeAreas: string[];
+  __v: 0
+}

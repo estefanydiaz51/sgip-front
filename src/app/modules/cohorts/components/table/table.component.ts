@@ -24,4 +24,5 @@ export class TableComponent {
   @Output() getCohorts = new EventEmitter<boolean>();
   @Input() teachers!: Teacher[];
   editCohortModalVisible = false;
+  cohortData!:Cohort|null;
 }

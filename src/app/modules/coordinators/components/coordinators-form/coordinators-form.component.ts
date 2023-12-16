@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-coordinators-form',
@@ -10,4 +10,6 @@ import { Component } from '@angular/core';
   templateUrl: `./coordinators-form.component.html`,
   styleUrl: './coordinators-form.component.scss'
 })
-export class CoordinatorsFormComponent { }
+export class CoordinatorsFormComponent {
+  @Output() hideForm = new EventEmitter<boolean>(false);
+}
