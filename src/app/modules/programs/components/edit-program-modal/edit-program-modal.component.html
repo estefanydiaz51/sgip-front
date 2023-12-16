@@ -36,13 +36,14 @@
           </div>
           <div nz-col nzSpan="12">
             <nz-select 
-            style="width: 100%;"
+              style="width: 100%;"
               nzMode="multiple" 
               nzPlaceHolder="Seleccione cohortes"
               [ngModelOptions]="{standalone: true}"
               name="cohorts"
-              [(ngModel)]="listOfOptions" 
-              id="cohorts">
+              [(ngModel)]="list" 
+              id="cohorts"
+              (ngModelChange)="cambio($event)">
               <nz-option 
                 *ngFor="let option of listOfOptions" 
                 [nzLabel]="option.name" 
@@ -62,7 +63,7 @@
         </button>
       </div>
       <div nz-col nzSpan="12" class="centerContent">
-        <button nz-button nzType="primary" [disabled]="form.invalid" (click)="updateProgram()">
+        <button nz-button nzType="primary" [disabled]="form.invalid && (list && list.length>0)" (click)="updateProgram()">
           <span>Guardar cambios</span>
         </button>
       </div>

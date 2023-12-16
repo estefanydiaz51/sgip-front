@@ -46,6 +46,7 @@ export class EditProgramModalComponent implements OnInit {
     'padding-top': '0px'
   };
   form!:FormGroup;
+  list:string[]=[];
 
   constructor(
     private fb : FormBuilder, 
@@ -67,7 +68,6 @@ export class EditProgramModalComponent implements OnInit {
       researchLines:['',[Validators.required]],
       dateRegistration:['',[Validators.required]],
       numberResolutionOfQualifiedRegistration:['',[Validators.required]],
-      cohortId:[[],[Validators.required]],
       resolutionFile:['',[Validators.required]]
     })
   }
@@ -82,7 +82,7 @@ export class EditProgramModalComponent implements OnInit {
     this.form.controls['dateRegistration'].setValue(new Date(this.programData.dateRegistration)? this.programData.dateRegistration : '');
     this.form.controls['numberResolutionOfQualifiedRegistration'].setValue(this.programData.numberResolutionOfQualifiedRegistration? this.programData.numberResolutionOfQualifiedRegistration : '');
     this.form.controls['resolutionFile'].setValue(this.programData.resolutionFile? this.programData.resolutionFile : '');
-    this.form.controls['cohortId'].setValue(this.programData.cohorts? this.getCohortsArray(this.programData.cohorts) : []);
+    this.list = this.programData.cohorts? this.programData.cohorts : [];
     this.form.updateValueAndValidity();
   }
 
@@ -97,7 +97,7 @@ export class EditProgramModalComponent implements OnInit {
       dateRegistration:this.form.value['dateRegistration'],
       numberResolutionOfQualifiedRegistration:this.form.value['numberResolutionOfQualifiedRegistration'],
       resolutionFile:this.form.value['resolutionFile'],
-      cohortId:this.form.value['cohortId'],
+      cohortId:this.list,
     }
 
     this.generalService.updateProgram(data).subscribe(res=>{
@@ -110,8 +110,6 @@ export class EditProgramModalComponent implements OnInit {
   }
 
   getCohortsArray(cohortsIdsArray:string[]) : Cohort[] {
-    console.log(cohortsIdsArray);
-    
     let cohortArray : Cohort[] = [];
     if(cohortsIdsArray && this.listOfOptions){
       cohortsIdsArray.forEach(cohortId => {
@@ -123,6 +121,10 @@ export class EditProgramModalComponent implements OnInit {
       });
     }
     return cohortArray;
+  }
+
+  cambio(cambio:any){
+    //console.log(cambio,this.list);
   }
 
 }
