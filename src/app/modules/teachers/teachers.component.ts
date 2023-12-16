@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Teacher } from '../../interfaces/general.interfaces';
 import { GeneralService } from '../../services/general.service';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -24,7 +24,7 @@ export class TeachersComponent implements OnInit {
     this.getTeachers();
   }
 
-  getTeachers(): void{
+  getTeachers(): void {
     this.generalService.getTeachers().subscribe((res) => {
       this.teachers = res;
     });

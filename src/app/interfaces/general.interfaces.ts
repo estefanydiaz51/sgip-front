@@ -82,6 +82,7 @@ export interface Teacher {
   knowledgeAreas: string[];
   _id?: string;
   __v?: number;
+  teacherId?: string;
 }
 export interface Coordinator {
   _id: string[];
@@ -94,5 +95,5 @@ export interface Coordinator {
   birthDay: string[];
   academicTraining: string[];
   knowledgeAreas: string[];
-  __v: 0
+  __v: 0;
 }

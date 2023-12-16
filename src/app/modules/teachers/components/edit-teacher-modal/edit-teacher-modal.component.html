@@ -1,0 +1,107 @@
+<nz-modal [(nzVisible)]="isVisible" nzClosable="false" [nzWidth]="1000">
+  <div *nzModalTitle class="title">
+    Editar Docente
+  </div>
+  <div *nzModalContent>
+    <div nz-row>
+      <div nz-col nzSpan="24" class="formContainer">
+        <form nz-form class="form" [formGroup]="form">
+          <div nz-row>
+           <div nz-col >
+             <nz-form-item>
+               <nz-form-label [nzSpan]="10" nzFor="name">Nombre docente</nz-form-label>
+               <nz-form-control [nzSpan]="20">
+                 <input nz-input formControlName="name" name="name" type="name" id="name">
+               </nz-form-control>
+             </nz-form-item >
+             <nz-form-item>
+               <nz-form-label [nzSpan]="10" nzFor="idCard">Documento</nz-form-label>
+               <nz-form-control [nzSpan]="20">
+                 <input nz-input formControlName="idCard" name="idCard" type="text" id="idCard">
+               </nz-form-control>
+             </nz-form-item >
+             <nz-form-item>
+               <nz-form-label [nzSpan]="10" nzFor="adress">Dirección</nz-form-label>
+               <nz-form-control [nzSpan]="20">
+                 <input nz-input formControlName="address" name="adress" type="text" id="adress">
+               </nz-form-control>
+             </nz-form-item >
+             <nz-form-item>
+               <nz-form-label [nzSpan]="10" nzFor="email">Correo</nz-form-label>
+               <nz-form-control [nzSpan]="20">
+                 <input nz-input formControlName="email" name="email" type="email" id="email">
+               </nz-form-control>
+             </nz-form-item >
+             <nz-form-item>
+               <nz-form-label [nzSpan]="10" nzFor="phone">Telefono</nz-form-label>
+               <nz-form-control [nzSpan]="20">
+                 <input nz-input formControlName="phone" name="phone" type="text" id="phone">
+               </nz-form-control>
+             </nz-form-item >
+           </div>
+       
+           <div nz-col class="margin">
+             <nz-form-item>
+               <nz-form-label [nzSpan]="14" nzFor="academicTraining">Formación academica</nz-form-label>
+               <nz-form-control [nzSpan]="14">
+                 <input nz-input formControlName="academicTraining" name="academicTraining" type="text" id="academicTraining">
+               </nz-form-control>
+             </nz-form-item >
+             <nz-form-item>
+               <nz-form-label [nzSpan]="14" nzFor="birthDay">Fecha de nacimiento</nz-form-label>
+               <nz-form-control [nzSpan]="14">
+                 <nz-date-picker 
+                   style="width:100%;"
+                   formControlName="birthDay" 
+                   name="birthDay"
+                   id="birthDay"
+                   nzPlaceHolder="Fecha de nacimiento">
+                 </nz-date-picker>
+               </nz-form-control>
+             </nz-form-item >
+             <nz-form-item>
+               <nz-form-label [nzSpan]="14" nzFor="knowledgeAreas">Areas de conocimiento</nz-form-label>
+               <nz-form-control [nzSpan]="14">
+                 <nz-select 
+                   nzMode="tags" 
+                   nzPlaceHolder="Agregue áreas de conocimiento"
+                   [ngModelOptions]="{standalone: true}"
+                   name="knowledgeAreas"
+                   [(ngModel)]="listOfTagOptions" 
+                   id="knowledgeAreas"
+                   (ngModelChange)="cambio($event)">
+                   <nz-option 
+                     *ngFor="let option of []" 
+                     [nzLabel]="option" 
+                     [nzValue]="option">
+                   </nz-option>
+                 </nz-select>
+               </nz-form-control>
+             </nz-form-item >
+             <nz-form-item>
+               <nz-form-label [nzSpan]="14" nzFor="gender">Genero</nz-form-label>
+               <nz-form-control [nzSpan]="14">
+                 <input nz-input formControlName="gender" name="gender" type="text" id="gender">
+               </nz-form-control>
+             </nz-form-item >
+           </div>
+          </div>
+         </form>
+      </div>
+    </div>
+  </div>
+  <div *nzModalFooter>
+    <div nz-row>
+      <div nz-col nzSpan="12" class="centerContent">
+        <button nz-button nzType="default" (click)="hideModalEvent.emit(false)">
+          <span>Cancelar</span>
+        </button>
+      </div>
+      <div nz-col nzSpan="12" class="centerContent">
+        <button nz-button nzType="primary" [disabled]="form.invalid" (click)="updateTeacher()">
+          <span>Guardar cambios</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nz-modal>

@@ -13,7 +13,9 @@
   <div *ngIf="!showForm">
     <app-table
       *ngIf="teachers.length>0"
-      [teachers]="teachers">
+      [teachers]="teachers"
+      (getTeachers)="getTeachers()"
+      >
     </app-table>
   </div>
   
