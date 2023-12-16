@@ -63,7 +63,7 @@
         </button>
       </div>
       <div nz-col nzSpan="12" class="centerContent">
-        <button nz-button nzType="primary" [disabled]="form.invalid && (list && list.length>0)" (click)="updateProgram()">
+        <button nz-button nzType="primary" [disabled]="form.invalid || !list || list.length===0" (click)="updateProgram()">
           <span>Guardar cambios</span>
         </button>
       </div>
