@@ -1,15 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { Cohort, Program, Student, Teacher } from '../interfaces/general.interfaces';
+import { Cohort, Program, Student, Teacher, UserData } from '../interfaces/general.interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GeneralService {
 
+  userData = new BehaviorSubject<UserData|null>(null);
+  userData$ = this.userData.asObservable();
+
   constructor(private httpService : HttpClient) { }
+
+
+  getUSer(): Observable<UserData> {
+    return this.httpService.get<UserData>(environment.apiUrl+'/user/profile');
+  }
 
   getCohorts(): Observable<Cohort[]> {
     return this.httpService.get<Cohort[]>(environment.apiUrl+'/consult/cohorts');
@@ -70,6 +78,7 @@ export class GeneralService {
   updateCoordinator(coordinator:any): Observable<any> {
     return this.httpService.post<any>(environment.apiUrl+'/update/coordinator',coordinator);
   }
+
 
 
 }

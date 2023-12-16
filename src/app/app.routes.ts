@@ -8,6 +8,7 @@ import { SigninComponent } from './modules/signin/signin.component';
 import { SignupComponent } from './modules/signup/signup.component';
 import { AuthGuard } from './guards/auth.guard';
 import { CoordinatorsComponent } from './modules/coordinators/coordinators.component';
+import { AdminGuard } from './guards/admin.guard';
 
 export const routes: Routes = [
   { path: 'signin', component: SigninComponent },
@@ -17,6 +18,6 @@ export const routes: Routes = [
   { path: 'teachers', component: TeachersComponent, canActivate:[AuthGuard] },
   { path: 'programs', component: ProgramsComponent, canActivate:[AuthGuard] },
   { path: 'students', component: StudentsComponent, canActivate:[AuthGuard] },
-  { path: 'coordinators', component: CoordinatorsComponent, canActivate:[AuthGuard] },
+  { path: 'coordinators', component: CoordinatorsComponent, canActivate:[AuthGuard,AdminGuard] },
   { path: '**', redirectTo: 'home' }
 ];

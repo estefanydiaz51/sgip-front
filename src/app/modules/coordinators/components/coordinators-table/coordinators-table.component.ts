@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
     CommonModule,
   ],
   templateUrl: `./coordinators-table.component.html`,
-  styleUrl: './coordinators-table.component.css',
+  styleUrl: './coordinators-table.component.scss',
 })
 export class CoordinatorsTableComponent { }

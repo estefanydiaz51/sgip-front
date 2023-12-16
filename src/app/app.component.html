@@ -28,10 +28,12 @@
           <span nz-icon nzType="team"></span>
           <span>Estudiantes</span>
         </li>
-        <li nz-menu-item routerLink="/coordinators">
-          <span nz-icon nzType="team"></span>
-          <span>Coordinadores</span>
-        </li>
+        @if(userData && userData.role==='administrador'){
+          <li nz-menu-item routerLink="/coordinators">
+            <span nz-icon nzType="team"></span>
+            <span>Coordinadores</span>
+          </li>
+        }
       </ul>
     </nz-sider>
     <nz-layout>
@@ -53,7 +55,10 @@
           </button>
           <nz-dropdown-menu #menu2="nzDropdownMenu">
             <ul nz-menu>
-              <li nz-menu-item>Nombre de usuario</li>
+              <li nz-menu-item>
+                <p class="name">{{userData? userData.name : 'Usuario'}}</p>
+                <p class="role">{{userData? userData.role : 'Sin rol'}}</p>
+              </li>
               <nz-divider style="margin:10px"></nz-divider>
               <li nz-menu-item>Ayuda</li>
               <li nz-menu-item (click)="signOut()">Salir</li>

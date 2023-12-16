@@ -1,3 +1,12 @@
+export interface UserData {
+  _id: string,
+  name: string,
+  surname: string,
+  role: string,
+  email: string,
+  programs: Program[],
+  createdAt: string
+}
 export interface LoginData {
   email: string;
   password: string;
