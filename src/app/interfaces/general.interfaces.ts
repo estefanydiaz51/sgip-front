@@ -1,11 +1,11 @@
 export interface UserData {
-  _id: string,
-  name: string,
-  surname: string,
-  role: string,
-  email: string,
-  programs: Program[],
-  createdAt: string
+  _id: string;
+  name: string;
+  surname: string;
+  role: string;
+  email: string;
+  programs: Program[];
+  createdAt: string;
 }
 export interface LoginData {
   email: string;
@@ -28,6 +28,7 @@ export interface Cohort {
   __v?: number;
   _id?: string;
   teachers?: string[];
+  cohortId?: string;
 }
 
 export interface Student {
@@ -46,9 +47,9 @@ export interface Student {
   egressDate: string;
   email: string;
   __v?: number;
-  cohortId?:string;
-  cohort?:string;
-  programId?:string;
+  cohortId?: string;
+  cohort?: string;
+  programId?: string;
 }
 
 export interface Program {
@@ -65,8 +66,8 @@ export interface Program {
   teachers?: string[];
   __v?: number;
   _id?: string;
-  programId?:string;
-  cohorts?:string[];
+  programId?: string;
+  cohorts?: string[];
 }
 
 export interface Teacher {

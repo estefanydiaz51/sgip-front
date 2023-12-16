@@ -13,7 +13,10 @@
   <div *ngIf="!showForm">
     <app-table
       *ngIf="cohorts.length>0"
-      [cohorts]="cohorts">
+      [cohorts]="cohorts"
+      (getCohorts)="getCohorts()"
+      [teachers]="teachers"
+      >
     </app-table>
   </div>
   

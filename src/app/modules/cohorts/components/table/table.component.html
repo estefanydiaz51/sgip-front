@@ -14,9 +14,16 @@
         <td>{{data.code}}</td>
         <td>{{data.numberStudents}}</td>
         <td class="actions">
-          <a><span nz-icon nzType="edit" nzTheme="outline"></span></a>
+          <a><span nz-icon nzType="edit" (click)="editCohortModalVisible=true" nzTheme="outline"></span></a>
           <a><span nz-icon nzType="eye-invisible" nzTheme="outline"></span></a>
         </td>
+        <app-edit-cohort-modal
+          [cohortData]="data"
+          [isVisible]="editCohortModalVisible"
+          (hideModalEvent)="editCohortModalVisible=$event"
+          (reloadtable)="getCohorts.emit(true)"
+          [listOfOptions]="teachers"
+        ></app-edit-cohort-modal>
       </tr>
     </tbody>
   </nz-table>

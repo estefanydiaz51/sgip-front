@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formContainer{
+  padding: 20px;
+  width: 100%;
+}
+
+.title{
+  color: white;
+}
+
+.buttonContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+

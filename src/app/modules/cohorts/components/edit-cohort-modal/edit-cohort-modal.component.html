@@ -1,0 +1,86 @@
+<nz-modal [(nzVisible)]="isVisible" nzClosable="false" [nzWidth]="1000">
+  <div *nzModalTitle class="title">
+    Editar Cohorte
+  </div>
+  <div *nzModalContent>
+    <div nz-row>
+      <div nz-col nzSpan="24" class="formContainer">
+        <form nz-form [formGroup]="form">
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" nzFor="name">Nombre</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+              <input nz-input  formControlName="name" name="name" type="name" id="name">
+            </nz-form-control>
+          </nz-form-item >
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" nzFor="code">Código</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+              <input nz-input  formControlName="code" name="code" type="code" id="code">
+            </nz-form-control>
+          </nz-form-item >
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" nzFor="numberStudents"># Estudiantes</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+              <input nz-input formControlName="numberStudents" name="numberStudents" type="text" id="numberStudents">
+            </nz-form-control>
+          </nz-form-item >
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" nzFor="numberStudents">Fecha de Inicio</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+              <nz-date-picker 
+              style="width:100%;"
+              formControlName="startDate" 
+              nzPlaceHolder="Fecha de Inicio">
+            </nz-date-picker>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" nzFor="EndDate">Fecha de Fin</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+              <nz-date-picker 
+                style="width:100%;"
+                formControlName="EndDate" 
+                nzPlaceHolder="Fecha de Fin"
+              ></nz-date-picker>
+            </nz-form-control>
+          </nz-form-item >
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" nzFor="numberStudents">Docentes</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+              <nz-select 
+              style="width: 100%;"
+              nzMode="multiple" 
+              nzPlaceHolder="Seleccione Docentes"
+              [ngModelOptions]="{standalone: true}"
+              name="teachers"
+              [(ngModel)]="list" 
+              id="teachers"
+              (ngModelChange)="cambio($event)">
+              <nz-option 
+                *ngFor="let option of listOfOptions" 
+                [nzLabel]="option.name" 
+                [nzValue]="option._id">
+              </nz-option>
+            </nz-select>        
+            </nz-form-control>
+              
+          </nz-form-item>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div *nzModalFooter>
+    <div nz-row>
+      <div nz-col nzSpan="12" class="centerContent">
+        <button nz-button nzType="default" (click)="hideModalEvent.emit(false)">
+          <span>Cancelar</span>
+        </button>
+      </div>
+      <div nz-col nzSpan="12" class="centerContent">
+        <button nz-button nzType="primary" [disabled]="form.invalid" (click)="updateCohort()">
+          <span>Guardar cambios</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nz-modal>
