@@ -8,6 +8,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { LoginData } from '../../interfaces/general.interfaces';
 import { Router } from '@angular/router';
 import { NzNotificationModule, NzNotificationService } from 'ng-zorro-antd/notification';
+import { GeneralService } from '../../services/general.service';
 
 @Component({
   selector: 'app-signin',
@@ -27,7 +28,8 @@ export class SigninComponent implements OnInit {
     private formBuilder : FormBuilder, 
     private authService : AuthService, 
     private routerService : Router,
-    private notification: NzNotificationService){
+    private notification: NzNotificationService,
+    private generalService : GeneralService){
     this.formInit();
   }
 
@@ -51,6 +53,7 @@ export class SigninComponent implements OnInit {
       localStorage.setItem('token',res.token);
       this.routerService.navigate(['home']);
       this.authService.generaLoading.next(false);
+      this.generalService.userData.next(res);
       this.notification.success('Éxito','Bienvenido a SGIPS, usted ah iniciado sesión correctamente');
     },error=>{
       this.notification.error('Error',error.message? error.message : 'Ha ocurrido un error al intentar iniciar sesión')

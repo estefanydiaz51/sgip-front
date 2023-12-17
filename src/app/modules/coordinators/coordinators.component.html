@@ -4,7 +4,6 @@
   <div nz-col nzSpan="24" class="buttonContainer">
     <button 
       nz-button
-      class="register-button"
       nzType="primary"
       (click)="handleShowForm()"
       >
@@ -12,16 +11,18 @@
     </button>
   </div>
 
-  <div *ngIf="!showForm">
+  <div *ngIf="!showForm && programs">
     <app-coordinators-table
       *ngIf="coordinatoors.length>0"
-      [coordinatoors]="coordinatoors">
+      [coordinators]="coordinatoors"
+      [programs]="programs">
     </app-coordinators-table>
   </div>
   
   <app-coordinators-form
-    *ngIf="showForm"
+    *ngIf="showForm && programs"
     (reloadTable)="getCoordinators()"
-    (hideForm)="showForm=$event">   
+    (hideForm)="showForm=$event"
+    [programs]="programs">   
   </app-coordinators-form>
 </div>

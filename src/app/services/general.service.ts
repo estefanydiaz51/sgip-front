@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { Cohort, Program, Student, Teacher, UserData } from '../interfaces/general.interfaces';
+import { Cohort, Program, RegistryCoordinator, Student, Teacher, UserData } from '../interfaces/general.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -58,8 +58,8 @@ export class GeneralService {
     return this.httpService.post<Teacher>(environment.apiUrl+'/create/teacher',teacher);
   }
 
-  createCoordinator(coordinator:any): Observable<any> {
-    return this.httpService.post<any>(environment.apiUrl+'/create/coordinator',coordinator);
+  createCoordinator(coordinator:RegistryCoordinator): Observable<any> {
+    return this.httpService.post<RegistryCoordinator>(environment.apiUrl+'/create/coordinator',coordinator);
   }
 
   updateCohort(cohort:Cohort): Observable<Cohort> {

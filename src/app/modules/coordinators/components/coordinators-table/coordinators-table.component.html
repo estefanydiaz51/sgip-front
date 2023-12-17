@@ -1,0 +1,32 @@
+<div class="container-table">
+  <nz-table #basicTable [nzData]="coordinators" [nzScroll]="{y:'250px'}">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Programas</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{data.name + data.surname}}</td>
+        <td>{{data.email}}</td>
+        <td>{{getProgramsNames(data.programs)}}</td>
+        <td class="actions">
+          <a><span nz-icon nzType="edit" (click)="editProgramModalVisible=true;programData=data;" nzTheme="outline"></span></a>
+          <a><span nz-icon nzType="eye-invisible" nzTheme="outline"></span></a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
+<!-- @if(programData){
+  <app-edit-cohort-modal
+    [programData]="programData"
+    [isVisible]="editProgramModalVisible"
+    (hideModalEvent)="editProgramModalVisible=$event;programData=null;"
+    (reloadtable)="getCohorts.emit(true)"
+    [listOfOptions]="teachers">
+  </app-edit-cohort-modal>
+} -->

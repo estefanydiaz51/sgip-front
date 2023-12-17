@@ -85,15 +85,28 @@ export interface Teacher {
   teacherId?: string;
 }
 export interface Coordinator {
-  _id: string[];
-  name: string[];
-  idCard: string[];
-  address: string[];
-  phone: string[];
-  gender: string[];
-  email: string[];
-  birthDay: string[];
-  academicTraining: string[];
+  _id?: string;
+  name: string;
+  surname: string;
+  idCard: string;
+  address: string;
+  phone: string;
+  gender: string;
+  email: string;
+  birthDay: string;
+  password: string;
+  role: string;
+  academicTraining: string;
   knowledgeAreas: string[];
-  __v: 0;
+  programs: string[];
+  __v?: 0
+}
+
+export interface RegistryCoordinator {
+  name: string;
+  surname: string;
+  email: string;
+  programId: string;
+  password: string;
+  __v?: 0
 }

@@ -1,0 +1,75 @@
+<div nz-row class="generalContainer">
+  <div nz-col nzSpan="24" class="title">
+    Registrar nuevo coordinador
+  </div>
+  <div nz-col nzSpan="24" class="formContainer">
+    <div nz-row nz-form [formGroup]="form" [nzGutter]="[20,20]">
+      <div nz-col nzSpan="24">
+        <input 
+          nz-input
+          formControlName="name"
+          placeholder="Nombre del coordinador">
+      </div>
+      <div nz-col nzSpan="24">
+        <input 
+          nz-input
+          formControlName="surname"
+          placeholder="Apellido del coordinador">
+      </div>
+      <div nz-col nzSpan="24">
+        <input 
+          nz-input
+          formControlName="email"
+          placeholder="Correo electrónico"
+          autocomplete="off">
+      </div>
+      <div nz-col nzSpan="24">
+        <input 
+          nz-input
+          formControlName="email"
+          placeholder="Correo electrónico"
+          autocomplete="off">
+      </div>
+      <div nz-col nzSpan="24">
+        <nz-select
+          nzPlaceHolder="Seleccione un programa"
+          formControlName="programId"
+          style="width: 100%;">
+          <nz-option
+            *ngFor="let program of programs"
+            [nzLabel]="program.name"
+            [nzValue]="program._id"
+            >
+          </nz-option>
+        </nz-select>
+      </div>
+      <div nz-col nzSpan="24">
+        <input 
+          nz-input
+          formControlName="password"
+          placeholder="Contraseña"
+          autocomplete="off"
+          [type]="'password'">
+      </div>
+      <div nz-col nzSpan="24">
+        <input 
+          nz-input
+          formControlName="passwordConfirm"
+          placeholder="Confirmar contraseña"
+          autocomplete="off"
+          [type]="'password'">
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24" class="buttonContainer">
+        <button 
+          nz-button
+          nzType="primary"
+          [disabled]="form.invalid"
+          (click)="createCoordinator()">
+          <span>Registrar</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
