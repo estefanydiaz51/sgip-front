@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Cohort, Program, RegistryCoordinator, Student, Teacher, UserData } from '../interfaces/general.interfaces';
@@ -9,77 +9,89 @@ import { Cohort, Program, RegistryCoordinator, Student, Teacher, UserData } from
 })
 export class GeneralService {
 
-  userData = new BehaviorSubject<UserData|null>(null);
+  userData = new BehaviorSubject<UserData | null>(null);
   userData$ = this.userData.asObservable();
 
   reloadProgramList = new BehaviorSubject<boolean>(false);
   reloadProgramList$ = this.reloadProgramList.asObservable();
 
-  constructor(private httpService : HttpClient) { }
+  initialUserState:UserData = {
+    createdAt:"",
+    email:"",
+    name:"",
+    programs:[],
+    role:"coordinador",
+    surname:"",
+    _id:""
+  };
+
+  user = signal(this.initialUserState);
+
+  constructor(private httpService: HttpClient) { }
 
 
   getUSer(): Observable<UserData> {
-    return this.httpService.get<UserData>(environment.apiUrl+'/user/profile');
+    return this.httpService.get<UserData>(environment.apiUrl + '/user/profile');
   }
 
   getCohorts(): Observable<Cohort[]> {
-    return this.httpService.get<Cohort[]>(environment.apiUrl+'/consult/cohorts');
+    return this.httpService.get<Cohort[]>(environment.apiUrl + '/consult/cohorts');
   }
 
   getStudents(): Observable<any> {
-    return this.httpService.get<any>(environment.apiUrl+'/consult/students');
+    return this.httpService.get<any>(environment.apiUrl + '/consult/students');
   }
 
   getPrograms(): Observable<Program[]> {
-    return this.httpService.get<Program[]>(environment.apiUrl+'/consult/programs');
+    return this.httpService.get<Program[]>(environment.apiUrl + '/consult/programs');
   }
 
   getTeachers(): Observable<any> {
-    return this.httpService.get<any>(environment.apiUrl+'/consult/teachers');
+    return this.httpService.get<any>(environment.apiUrl + '/consult/teachers');
   }
 
   getCoordinators(): Observable<any> {
-    return this.httpService.get<any>(environment.apiUrl+'/consult/coordinators');
+    return this.httpService.get<any>(environment.apiUrl + '/consult/coordinators');
   }
 
-  createCohort(cohort:Cohort): Observable<Cohort> {
-    return this.httpService.post<Cohort>(environment.apiUrl+'/create/cohort',cohort);
+  createCohort(cohort: Cohort): Observable<Cohort> {
+    return this.httpService.post<Cohort>(environment.apiUrl + '/create/cohort', cohort);
   }
 
-  createStudent(student:Student): Observable<Student> {
-    return this.httpService.post<Student>(environment.apiUrl+'/create/students',student);
+  createStudent(student: Student): Observable<Student> {
+    return this.httpService.post<Student>(environment.apiUrl + '/create/students', student);
   }
 
-  createProgram(program:Program): Observable<Program> {
-    return this.httpService.post<Program>(environment.apiUrl+'/create/program',program);
+  createProgram(program: Program): Observable<Program> {
+    return this.httpService.post<Program>(environment.apiUrl + '/create/program', program);
   }
 
-  createtTeacher(teacher:Teacher): Observable<Teacher> {
-    return this.httpService.post<Teacher>(environment.apiUrl+'/create/teacher',teacher);
+  createtTeacher(teacher: Teacher): Observable<Teacher> {
+    return this.httpService.post<Teacher>(environment.apiUrl + '/create/teacher', teacher);
   }
 
-  createCoordinator(coordinator:RegistryCoordinator): Observable<any> {
-    return this.httpService.post<RegistryCoordinator>(environment.apiUrl+'/create/coordinator',coordinator);
+  createCoordinator(coordinator: RegistryCoordinator): Observable<any> {
+    return this.httpService.post<RegistryCoordinator>(environment.apiUrl + '/create/coordinator', coordinator);
   }
 
-  updateCohort(cohort:Cohort): Observable<Cohort> {
-    return this.httpService.post<Cohort>(environment.apiUrl+'/update/cohort',cohort);
+  updateCohort(cohort: Cohort): Observable<Cohort> {
+    return this.httpService.post<Cohort>(environment.apiUrl + '/update/cohort', cohort);
   }
 
-  updateStudent(student:Student): Observable<Student> {
-    return this.httpService.post<Student>(environment.apiUrl+'/update/students',student);
+  updateStudent(student: Student): Observable<Student> {
+    return this.httpService.post<Student>(environment.apiUrl + '/update/students', student);
   }
 
-  updateProgram(program:Program): Observable<Program> {
-    return this.httpService.post<Program>(environment.apiUrl+'/update/program',program);
+  updateProgram(program: Program): Observable<Program> {
+    return this.httpService.post<Program>(environment.apiUrl + '/update/program', program);
   }
 
-  updateTeacher(teacher:Teacher): Observable<Teacher> {
-    return this.httpService.post<Teacher>(environment.apiUrl+'/update/teacher',teacher);
+  updateTeacher(teacher: Teacher): Observable<Teacher> {
+    return this.httpService.post<Teacher>(environment.apiUrl + '/update/teacher', teacher);
   }
 
-  updateCoordinator(coordinator:any): Observable<any> {
-    return this.httpService.post<any>(environment.apiUrl+'/update/coordinator',coordinator);
+  updateCoordinator(coordinator: any): Observable<any> {
+    return this.httpService.post<any>(environment.apiUrl + '/update/coordinator', coordinator);
   }
 
 

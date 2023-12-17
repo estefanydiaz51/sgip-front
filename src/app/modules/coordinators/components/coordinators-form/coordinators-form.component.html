@@ -60,16 +60,14 @@
           [type]="'password'">
       </div>
     </div>
-    <div nz-row>
-      <div nz-col nzSpan="24" class="buttonContainer">
-        <button 
-          nz-button
-          nzType="primary"
-          [disabled]="form.invalid"
-          (click)="createCoordinator()">
-          <span>Registrar</span>
-        </button>
-      </div>
-    </div>
+  </div>
+  <div nz-col nzSpan="24" class="buttonContainer">
+    <button 
+      nz-button
+      nzType="primary"
+      [disabled]="form.invalid"
+      (click)="createCoordinator()">
+      <span>Registrar</span>
+    </button>
   </div>
 </div>

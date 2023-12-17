@@ -51,10 +51,11 @@ export class SigninComponent implements OnInit {
     this.authService.generaLoading.next(true);
     this.authService.login(loginData).subscribe(res=>{
       localStorage.setItem('token',res.token);
-      this.routerService.navigate(['home']);
       this.authService.generaLoading.next(false);
-      this.generalService.userData.next(res);
-      this.notification.success('Éxito','Bienvenido a SGIPS, usted ah iniciado sesión correctamente');
+      this.generalService.userData.next(res.user);
+      this.routerService.navigate(['home']).then(res=>{
+        location.reload();
+      });
     },error=>{
       this.notification.error('Error',error.message? error.message : 'Ha ocurrido un error al intentar iniciar sesión')
       this.authService.generaLoading.next(false);

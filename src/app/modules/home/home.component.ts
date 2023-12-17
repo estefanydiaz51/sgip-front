@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     CommonModule,
   ],
   templateUrl:'./home.component.html',
-  styleUrl: './home.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './home.component.scss'
 })
-export class HomeComponent { }
+export class HomeComponent {
+  constructor(private notification: NzNotificationService){
+    this.notification.success('Éxito','Bienvenido a SGIPS');
+  }
+}

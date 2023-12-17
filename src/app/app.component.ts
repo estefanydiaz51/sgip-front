@@ -106,13 +106,12 @@ export class AppComponent implements OnInit{
 
     let userData = this.generalService.userData.getValue();
 
-    if(!userData){
+    if(!userData && localStorage.getItem('token')){
       this.generalService.getUSer().subscribe(res=>{
         this.generalService.userData.next(res);
         this.userData = res;
       });
     }
-    
   }
 
   signOut(): void {

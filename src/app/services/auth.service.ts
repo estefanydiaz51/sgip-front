@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LoginData, RegisterData } from '../interfaces/general.interfaces';
+import { LoginData, LoginResponse, RegisterData } from '../interfaces/general.interfaces';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -14,8 +14,8 @@ export class AuthService {
 
   constructor(private httpService : HttpClient) { }
 
-  login(loginData:LoginData): Observable<any> {
-    return this.httpService.post<any>(environment.apiUrl+'/auth/login',loginData);
+  login(loginData:LoginData): Observable<LoginResponse> {
+    return this.httpService.post<LoginResponse>(environment.apiUrl+'/auth/login',loginData);
   }
 
   register(registerData:RegisterData): Observable<any> {
