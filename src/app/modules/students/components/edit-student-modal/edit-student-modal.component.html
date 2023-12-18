@@ -1,0 +1,136 @@
+<nz-modal [(nzVisible)]="isVisible" nzClosable="false" [nzWidth]="1000">
+  <div *nzModalTitle class="title">
+    Editar Cohorte
+  </div>
+  <div *nzModalContent>
+    <div nz-row>
+      <div nz-col nzSpan="24" class="formContainer">
+        <form nz-form class="form" [formGroup]="form">
+          <div nz-row>
+            <div nz-col>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="12" nzFor="name">Nombre estudiante</nz-form-label>
+                <nz-form-control [nzSpan]="30">
+                  <input nz-input formControlName="name" name="name" type="text" id="name">
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="12" nzFor="id">Número de documento</nz-form-label>
+                <nz-form-control [nzSpan]="30">
+                  <input nz-input formControlName="id" name="id" type="text" id="id">
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="12" nzFor="studentCode">Código</nz-form-label>
+                <nz-form-control [nzSpan]="30">
+                  <input nz-input formControlName="studentCode" name="studentCode" type="text" id="studentCode">
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="12" nzFor="address">Dirección de residencia</nz-form-label>
+                <nz-form-control [nzSpan]="30">
+                  <input nz-input formControlName="address" name="address" type="text" id="address">
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="12" nzFor="phone">Telefono</nz-form-label>
+                <nz-form-control [nzSpan]="30">
+                  <input nz-input formControlName="phone" name="phone" type="text" id="phone">
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="12" nzFor="email">Correo electronico</nz-form-label>
+                <nz-form-control [nzSpan]="30">
+                  <input nz-input formControlName="email" name="email" type="text" id="email">
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="12" nzFor="gender">Genero</nz-form-label>
+                <nz-form-control [nzSpan]="30">
+                  <input nz-input formControlName="gender" name="gender" type="text" id="gender">
+                </nz-form-control>
+              </nz-form-item>
+            </div>
+            <div nz-col>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="12" nzFor="birthDay">Fecha de nacimiento</nz-form-label>
+                <nz-form-control [nzSpan]="30">
+                  <nz-date-picker style="width:100%;" formControlName="birthDay" name="birthDay" id="birthDay"
+                    nzPlaceHolder="Fecha de nacimiento">
+                  </nz-date-picker>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="12" nzFor="semester">Semestre</nz-form-label>
+                <nz-form-control [nzSpan]="30">
+                  <input nz-input formControlName="semester" name="semester" type="text" id="semester">
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="12" nzFor="civilStatus">Estado civil</nz-form-label>
+                <nz-form-control [nzSpan]="30">
+                  <input nz-input formControlName="civilStatus" name="civilStatus" type="text" id="civilStatus">
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="12" nzFor="ingressDate">Fecha de ingreso</nz-form-label>
+                <nz-form-control [nzSpan]="30">
+                  <nz-date-picker style="width:100%;" formControlName="ingressDate" name="ingressDate" id="ingressDate"
+                    nzPlaceHolder="Fecha de ingreso">
+                  </nz-date-picker>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="12" nzFor="egressDate">Fecha de egreso</nz-form-label>
+                <nz-form-control [nzSpan]="30">
+                  <nz-date-picker style="width:100%;" formControlName="egressDate" name="egressDate" id="egressDate"
+                    nzPlaceHolder="Fecha de egreso">
+                  </nz-date-picker>
+                </nz-form-control>
+              </nz-form-item>
+              <!-- <nz-form-item>
+                <nz-form-label [nzSpan]="12" nzFor="cohort">Cohorte</nz-form-label>
+                <nz-form-control [nzSpan]="30">
+                  <nz-select
+                    nzPlaceHolder="Seleccione cohorte"
+                    formControlName="cohortId"
+                    autocomplete="off"
+                    name="cohort"
+                    id="cohort">
+                    <nz-option
+                      *ngFor="let cohort of cohorts"
+                      [nzLabel]="cohort.name"
+                      [nzValue]="cohort._id"
+                      >
+                    </nz-option>
+                  </nz-select>
+                </nz-form-control>
+              </nz-form-item> -->
+              <nz-form-item>
+                <nz-form-label [nzSpan]="12" nzFor="photo">Foto</nz-form-label>
+                <nz-form-control [nzSpan]="30">
+                  <input nz-input formControlName="photo" name="photo" type="text" id="photo">
+                </nz-form-control>
+              </nz-form-item>
+            </div>
+          </div>
+         
+        </form>
+      </div>
+    </div>
+  </div>
+  <div *nzModalFooter>
+    <div nz-row>
+      <div nz-col nzSpan="12" class="centerContent">
+        <button nz-button nzType="default" (click)="hideModalEvent.emit(false)">
+          <span>Cancelar</span>
+        </button>
+      </div>
+      <div nz-col nzSpan="12" class="centerContent">
+        <button nz-button nzType="primary" [disabled]="form.invalid" (click)="updateCohort()">
+          <span>Guardar cambios</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nz-modal>

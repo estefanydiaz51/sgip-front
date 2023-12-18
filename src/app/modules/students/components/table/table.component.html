@@ -14,10 +14,18 @@
         <td>{{data.id}}</td>
         <td>{{data.email}}</td>
         <td class="actions">
-          <a><span nz-icon nzType="edit" nzTheme="outline"></span></a>
+          <a><span nz-icon nzType="edit" (click)="editStudentModalVisible=true;studentData=data;" nzTheme="outline"></span></a>
           <a><span nz-icon nzType="eye-invisible" nzTheme="outline"></span></a>
         </td>
       </tr>
     </tbody>
   </nz-table>
 </div>
+
+@if(studentData){
+  <app-edit-student-modal
+    [studentData]="studentData"
+    [isVisible]="editStudentModalVisible"
+    (hideModalEvent)="editStudentModalVisible=$event;studentData=null;">
+  </app-edit-student-modal>
+}
