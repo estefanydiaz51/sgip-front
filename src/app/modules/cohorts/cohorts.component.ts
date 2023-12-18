@@ -20,6 +20,12 @@ export class CohortsComponent implements OnInit {
 
   constructor(private generalService: GeneralService) {
     this.getTeachers();
+
+    this.generalService.reloadProgramList$.subscribe((res) => {
+      if (res) {
+        this.getCohorts();
+      }
+    });
   }
 
   ngOnInit(): void {

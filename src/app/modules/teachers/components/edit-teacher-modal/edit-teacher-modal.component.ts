@@ -54,7 +54,7 @@ export class EditTeacherModalComponent implements OnInit {
   @Input() listOfOptions!: Teacher[];
   @Output() reloadTable = new EventEmitter<boolean>();
   @Output() hideModalEvent = new EventEmitter<boolean>();
-  listOfTagOptions = [];
+  listOfTagOptions: string[] = [];
 
   modalBodyStyle = {
     maxHeight: '60vh',
@@ -71,7 +71,6 @@ export class EditTeacherModalComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.teacherData);
     this.formInit();
     this.setForm();
   }
@@ -120,9 +119,7 @@ export class EditTeacherModalComponent implements OnInit {
     this.form.controls['phone'].setValue(
       this.teacherData.gender ? this.teacherData.gender : ''
     );
-    this.form.controls['knowledgeAreas'].setValue(
-      this.teacherData.knowledgeAreas
-    );
+    this.listOfTagOptions = this.teacherData.knowledgeAreas;
 
     this.form.updateValueAndValidity();
   }

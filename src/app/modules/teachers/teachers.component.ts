@@ -18,7 +18,13 @@ export class TeachersComponent implements OnInit {
   teachers: Teacher[] = [];
   showForm: boolean = false;
 
-  constructor(private generalService: GeneralService) {}
+  constructor(private generalService: GeneralService) {
+    this.generalService.reloadProgramList$.subscribe((res) => {
+      if (res) {
+        this.getTeachers();
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.getTeachers();
