@@ -25,6 +25,7 @@ import {
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import {
   Cohort,
+  Program,
   Student
 } from '../../../../interfaces/general.interfaces';
 import { GeneralService } from '../../../../services/general.service';
@@ -55,6 +56,7 @@ export class EditStudentModalComponent implements OnInit {
   @Input() isVisible!: boolean;
   @Input() studentData!: Student;
   @Input() listOfOptions!: Cohort[];
+  @Input() programs!: Program[];
   @Output() reloadTable = new EventEmitter<boolean>();
   @Output() hideModalEvent = new EventEmitter<boolean>();
   modalBodyStyle = {
@@ -97,53 +99,59 @@ export class EditStudentModalComponent implements OnInit {
       egressDate: ['', [Validators.required]],
       email: ['', [Validators.required]],
       cohortId: ['', [Validators.required]],
+      programId: ['', [Validators.required]]
     });
   }
 
   setForm(): void {
-    this.form.controls['name'].setValue(
-      this.studentData.name ? this.studentData.name : ''
-    );
-    this.form.controls['id'].setValue(
-      this.studentData._id ? this.studentData._id : ''
-    );
-    this.form.controls['studentCode'].setValue(
-      this.studentData.studentCode ? this.studentData.studentCode : ''
-    );
-    this.form.controls['photo'].setValue(
-      this.studentData.photo ? this.studentData.photo : ''
-    );
-    this.form.controls['address'].setValue(
-      this.studentData.address ? this.studentData.address : ''
-    );
-    this.form.controls['phone'].setValue(
-      this.studentData.phone ? this.studentData.phone : ''
-    );
-
-    this.form.controls['gender'].setValue(
-      this.studentData.gender ? this.studentData.gender : ''
-    );
-    this.form.controls['birthDay'].setValue(
-      this.studentData.birthDay ? this.studentData.birthDay : ''
-    );
-    this.form.controls['semester'].setValue(
-      this.studentData.semester ? this.studentData.semester : ''
-    );
-    this.form.controls['civilStatus'].setValue(
-      this.studentData.civilStatus ? this.studentData.civilStatus : ''
-    );
-    this.form.controls['ingressDate'].setValue(
-      this.studentData.ingressDate ? this.studentData.ingressDate : ''
-    );
-    this.form.controls['egressDate'].setValue(
-      this.studentData.egressDate ? this.studentData.egressDate : ''
-    );
-    this.form.controls['email'].setValue(
-      this.studentData.email ? this.studentData.email : ''
-    );
-    this.form.controls['cohortId'].setValue(
-      this.studentData.cohort ? this.studentData.cohort : ''
-    );
+    if(this.studentData){
+      this.form.controls['name'].setValue(
+        this.studentData.name ? this.studentData.name : ''
+      );
+      this.form.controls['id'].setValue(
+        this.studentData._id ? this.studentData._id : ''
+      );
+      this.form.controls['studentCode'].setValue(
+        this.studentData.studentCode ? this.studentData.studentCode : ''
+      );
+      this.form.controls['photo'].setValue(
+        this.studentData.photo ? this.studentData.photo : ''
+      );
+      this.form.controls['address'].setValue(
+        this.studentData.address ? this.studentData.address : ''
+      );
+      this.form.controls['phone'].setValue(
+        this.studentData.phone ? this.studentData.phone : ''
+      );
+  
+      this.form.controls['gender'].setValue(
+        this.studentData.gender ? this.studentData.gender : ''
+      );
+      this.form.controls['birthDay'].setValue(
+        this.studentData.birthDay ? this.studentData.birthDay : ''
+      );
+      this.form.controls['semester'].setValue(
+        this.studentData.semester ? this.studentData.semester : ''
+      );
+      this.form.controls['civilStatus'].setValue(
+        this.studentData.civilStatus ? this.studentData.civilStatus : ''
+      );
+      this.form.controls['ingressDate'].setValue(
+        this.studentData.ingressDate ? this.studentData.ingressDate : ''
+      );
+      this.form.controls['egressDate'].setValue(
+        this.studentData.egressDate ? this.studentData.egressDate : ''
+      );
+      this.form.controls['email'].setValue(
+        this.studentData.email ? this.studentData.email : ''
+      );
+      this.form.controls['cohortId'].setValue(
+        this.studentData.cohort ? this.studentData.cohort : ''
+      );
+      this.form.controls['programId'].setValue(
+        this.studentData.programs? this.studentData.programs[0] : ''
+      );
+    }
     this.form.updateValueAndValidity();
   }
 
@@ -163,6 +171,8 @@ export class EditStudentModalComponent implements OnInit {
       ingressDate: this.form.value['ingressDate'],
       egressDate: this.form.value['egressDate'],
       email: this.form.value['email'],
+      cohortId: this.form.value['cohortId'],
+      programId: this.form.value['programId']
     };
 
     this.generalService.updateStudent(data).subscribe(

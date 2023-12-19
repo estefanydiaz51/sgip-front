@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
-import { Student } from '../../../../interfaces/general.interfaces';
+import { Program, Student } from '../../../../interfaces/general.interfaces';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { EditStudentModalComponent } from '../edit-student-modal/edit-student-modal.component';
 import { GeneralService } from '../../../../services/general.service';
@@ -22,6 +22,7 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
 })
 export class TableComponent {
   @Input() students: Student[] = [];
+  @Input() programs!: Program[];
   @Output() reloadTable = new EventEmitter<boolean>();
   editStudentModalVisible = false;
   studentData!: Student | null;

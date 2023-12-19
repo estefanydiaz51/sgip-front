@@ -23,10 +23,11 @@
   </nz-table>
 </div>
 
-@if(studentData){
+@if(studentData && programs){
   <app-edit-student-modal
     [studentData]="studentData"
     [isVisible]="editStudentModalVisible"
-    (hideModalEvent)="editStudentModalVisible=$event;studentData=null;">
+    (hideModalEvent)="editStudentModalVisible=$event;studentData=null;"
+    [programs]="programs">
   </app-edit-student-modal>
 }

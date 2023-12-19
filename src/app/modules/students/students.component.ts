@@ -4,7 +4,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { TableComponent } from './components/table/table.component';
 import { FormComponent } from './components/Form/form.component';
 import { GeneralService } from '../../services/general.service';
-import { Student } from '../../interfaces/general.interfaces';
+import { Program, Student } from '../../interfaces/general.interfaces';
 
 @Component({
   selector: 'app-students',
@@ -16,6 +16,7 @@ import { Student } from '../../interfaces/general.interfaces';
 export class StudentsComponent implements OnInit {
   students: Student[] = [];
   showForm: boolean = false;
+  programs!:Program[];
 
   constructor(private generalService: GeneralService) {}
 
@@ -23,6 +24,7 @@ export class StudentsComponent implements OnInit {
     this.generalService.getStudents().subscribe((res) => {
       this.students = res;
     });
+    this.getPrograms();
   }
 
   handleShowForm() {
@@ -32,6 +34,12 @@ export class StudentsComponent implements OnInit {
   getStudents(): void {
     this.generalService.getStudents().subscribe((res) => {
       this.students = res;
+    });
+  }
+
+  getPrograms() : void{
+    this.generalService.getPrograms().subscribe(res=>{
+      this.programs = res;
     });
   }
 }

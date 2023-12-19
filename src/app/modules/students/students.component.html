@@ -12,7 +12,9 @@
     <app-table
       *ngIf="students"
       [students]="students"
-      (reloadTable)="getStudents()">
+      (reloadTable)="getStudents()"
+      [programs]="programs"
+      >
     </app-table>
   </div>
   
