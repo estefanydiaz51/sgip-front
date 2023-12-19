@@ -1,6 +1,6 @@
 <nz-modal [(nzVisible)]="isVisible" nzClosable="false" [nzWidth]="1000">
   <div *nzModalTitle class="title">
-    Editar Cohorte
+    Editar estudiante
   </div>
   <div *nzModalContent>
     <div nz-row>
@@ -88,7 +88,7 @@
                   </nz-date-picker>
                 </nz-form-control>
               </nz-form-item>
-              <!-- <nz-form-item>
+              <nz-form-item>
                 <nz-form-label [nzSpan]="12" nzFor="cohort">Cohorte</nz-form-label>
                 <nz-form-control [nzSpan]="30">
                   <nz-select
@@ -105,7 +105,7 @@
                     </nz-option>
                   </nz-select>
                 </nz-form-control>
-              </nz-form-item> -->
+              </nz-form-item>
               <nz-form-item>
                 <nz-form-label [nzSpan]="12" nzFor="photo">Foto</nz-form-label>
                 <nz-form-control [nzSpan]="30">
@@ -127,7 +127,7 @@
         </button>
       </div>
       <div nz-col nzSpan="12" class="centerContent">
-        <button nz-button nzType="primary" [disabled]="form.invalid" (click)="updateCohort()">
+        <button nz-button nzType="primary" [disabled]="form.invalid" (click)="updateStudent()">
           <span>Guardar cambios</span>
         </button>
       </div>

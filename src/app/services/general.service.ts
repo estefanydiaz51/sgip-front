@@ -79,7 +79,7 @@ export class GeneralService {
   }
 
   updateStudent(student: Student): Observable<Student> {
-    return this.httpService.post<Student>(environment.apiUrl + '/update/students', student);
+    return this.httpService.post<Student>(environment.apiUrl + '/update/student', student);
   }
 
   updateProgram(program: Program): Observable<Program> {

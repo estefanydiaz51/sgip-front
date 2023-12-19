@@ -56,6 +56,7 @@ export interface Student {
   cohortId?: string;
   cohort?: string;
   programId?: string;
+  studentId?: string;
 }
 
 export interface Program {

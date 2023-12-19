@@ -25,8 +25,7 @@ import {
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import {
   Cohort,
-  Student,
-  Teacher,
+  Student
 } from '../../../../interfaces/general.interfaces';
 import { GeneralService } from '../../../../services/general.service';
 import { NzGridModule } from 'ng-zorro-antd/grid';
@@ -55,7 +54,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 export class EditStudentModalComponent implements OnInit {
   @Input() isVisible!: boolean;
   @Input() studentData!: Student;
-  @Input() listOfOptions!: Teacher[];
+  @Input() listOfOptions!: Cohort[];
   @Output() reloadTable = new EventEmitter<boolean>();
   @Output() hideModalEvent = new EventEmitter<boolean>();
   modalBodyStyle = {
@@ -65,12 +64,17 @@ export class EditStudentModalComponent implements OnInit {
   };
   form!: FormGroup;
   list: string[] = [];
+  cohorts!: Cohort[];
 
   constructor(
     private fb: FormBuilder,
     private generalService: GeneralService,
     private notificacionService: NzNotificationService
-  ) {}
+  ){
+    this.generalService.getCohorts().subscribe(res => {
+      this.cohorts = res;
+  });
+  }
 
   ngOnInit(): void {
     this.formInit();
@@ -137,11 +141,15 @@ export class EditStudentModalComponent implements OnInit {
     this.form.controls['email'].setValue(
       this.studentData.email ? this.studentData.email : ''
     );
+    this.form.controls['cohortId'].setValue(
+      this.studentData.cohort ? this.studentData.cohort : ''
+    );
     this.form.updateValueAndValidity();
   }
 
-  updateCohort(): void {
+  updateStudent(): void {
     let data: Student = {
+      studentId: this.studentData._id,
       name: this.form.value['name'],
       id: this.form.value['id'],
       studentCode: this.form.value['studentCode'],
@@ -175,20 +183,18 @@ export class EditStudentModalComponent implements OnInit {
     );
   }
 
-  getCohortsArray(teachersIdsArray: []): Teacher[] {
-    console.log(teachersIdsArray);
-
-    let teacherArray: Teacher[] = [];
-    if (teachersIdsArray && this.listOfOptions) {
-      teachersIdsArray.forEach((id) => {
-        this.listOfOptions.forEach((teacher) => {
-          if (teacher._id === id) {
-            teacherArray.push(teacher);
+  getCohortsArray(cohortsIdsArray:string[]) : Cohort[] {
+    let cohortArray : Cohort[] = [];
+    if(cohortsIdsArray && this.listOfOptions){
+      cohortsIdsArray.forEach(cohortId => {
+        this.listOfOptions.forEach(cohort => {
+          if(cohort._id === cohortId){
+            cohortArray.push(cohort);
           }
         });
       });
     }
-    return teacherArray;
+    return cohortArray;
   }
 
   cambio(cambio: any) {
