@@ -98,7 +98,7 @@
         </button>
       </div>
       <div nz-col nzSpan="12" class="centerContent">
-        <button nz-button nzType="primary" [disabled]="form.invalid" (click)="updateTeacher()">
+        <button nz-button nzType="primary" [disabled]="form.invalid || listOfTagOptions.length===0" (click)="updateTeacher()">
           <span>Guardar cambios</span>
         </button>
       </div>

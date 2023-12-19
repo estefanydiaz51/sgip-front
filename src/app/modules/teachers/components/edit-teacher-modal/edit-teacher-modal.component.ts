@@ -83,7 +83,6 @@ export class EditTeacherModalComponent implements OnInit {
       idCard: ['', [Validators.required]],
       birthDay: ['', [Validators.required]],
       address: ['', [Validators.required]],
-      knowledgeAreas: [[], [Validators.required]],
       email: ['', [Validators.required]],
       gender: ['', [Validators.required]],
       phone: ['', [Validators.required]],
@@ -134,7 +133,7 @@ export class EditTeacherModalComponent implements OnInit {
       address: this.form.value['address'],
       email: this.form.value['email'],
       gender: this.form.value['gender'],
-      knowledgeAreas: this.form.value['knowledgeAreas'],
+      knowledgeAreas: this.listOfTagOptions,
       phone: this.form.value['phone'],
     };
 
@@ -157,7 +156,7 @@ export class EditTeacherModalComponent implements OnInit {
   }
 
   cambio($event: any): void {
-    this.form.controls['knowledgeAreas'].setValue(this.listOfTagOptions);
-    this.form.controls['knowledgeAreas'].updateValueAndValidity();
+    // this.form.controls['knowledgeAreas'].setValue(this.listOfTagOptions);
+    // this.form.controls['knowledgeAreas'].updateValueAndValidity();
   }
 }
