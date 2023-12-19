@@ -8,9 +8,9 @@ export interface UserData {
   createdAt: string;
 }
 
-export interface LoginResponse{
-  token:string;
-  user:UserData;
+export interface LoginResponse {
+  token: string;
+  user: UserData;
 }
 
 export interface LoginData {
@@ -105,14 +105,16 @@ export interface Coordinator {
   academicTraining: string;
   knowledgeAreas: string[];
   programs: string[];
-  __v?: 0
+  __v?: 0;
 }
 
 export interface RegistryCoordinator {
+  _id?: string;
   name: string;
   surname: string;
   email: string;
   programId: string;
   password: string;
-  __v?: 0
+  __v?: 0;
+  coordinatorId?: string;
 }
