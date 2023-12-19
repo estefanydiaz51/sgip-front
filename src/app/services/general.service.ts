@@ -15,6 +15,9 @@ export class GeneralService {
   reloadProgramList = new BehaviorSubject<boolean>(false);
   reloadProgramList$ = this.reloadProgramList.asObservable();
 
+  reloadCoordinatorList = new BehaviorSubject<boolean>(false);
+  reloadCoordinatorList$ = this.reloadCoordinatorList.asObservable();
+
   initialUserState:UserData = {
     createdAt:"",
     email:"",

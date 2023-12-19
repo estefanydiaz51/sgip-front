@@ -23,7 +23,11 @@ export class CoordinatorsComponent  implements OnInit {
   showForm: boolean = false;
   programs!:Program[];
 
-  constructor(private generalService: GeneralService){}
+  constructor(private generalService: GeneralService){
+    this.generalService.reloadCoordinatorList$.subscribe( res=>{
+      this.getCoordinators();
+    });
+  }
 
   ngOnInit(): void {
     this.getCoordinators();

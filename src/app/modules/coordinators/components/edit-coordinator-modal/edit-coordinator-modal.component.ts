@@ -58,7 +58,6 @@ export class EditCoordinatorModalComponent implements OnInit {
   @Input() isVisible!: boolean;
   @Input() coordinatorData!: Coordinator;
   @Input() listOfOptions!: Program[];
-  @Output() reloadTable = new EventEmitter<boolean>();
   @Output() hideModalEvent = new EventEmitter<boolean>();
   modalBodyStyle = {
     maxHeight: '60vh',
@@ -107,9 +106,9 @@ export class EditCoordinatorModalComponent implements OnInit {
     // this.form.controls['password'].setValue(
     //   this.coordinatorData.password ? this.coordinatorData.password : ''
     // );
-    // this.form.controls['programId'].setValue(
-    //   this.coordinatorData.programs ? (this.coordinatorData.programs[0]? this.coordinatorData.programs[0] : '') : ''
-    // );
+    this.form.controls['programId'].setValue(
+      this.coordinatorData.programs ? (this.coordinatorData.programs[0]? this.coordinatorData.programs[0] : '') : ''
+    );
 
     this.list = this.coordinatorData.programs
       ? this.coordinatorData.programs
@@ -131,7 +130,7 @@ export class EditCoordinatorModalComponent implements OnInit {
     this.generalService.updateCoordinator(data).subscribe(
       (res) => {
         this.hideModalEvent.emit(false);
-        this.reloadTable.emit(true);
+        this.generalService.reloadCoordinatorList.next(true);
         //this.generalService.reloadProgramList.next(true);
         this.notificacionService.success(
           'Éxito',
