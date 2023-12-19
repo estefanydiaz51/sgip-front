@@ -86,8 +86,8 @@ export class EditCoordinatorModalComponent implements OnInit {
       surname: ['', [Validators.required]],
       email: ['', [Validators.required]],
       programId: ['', [Validators.required]],
-      password: ['', [Validators.required]],
-      passwordConfirm: ['', [Validators.required]]
+      //password: ['', [Validators.required]],
+      //passwordConfirm: ['', [Validators.required]]
     });
   }
 
@@ -104,12 +104,12 @@ export class EditCoordinatorModalComponent implements OnInit {
     this.form.controls['email'].setValue(
       this.coordinatorData.email ? this.coordinatorData.email : ''
     );
-    this.form.controls['password'].setValue(
-      this.coordinatorData.password ? this.coordinatorData.password : ''
-    );
-    this.form.controls['programId'].setValue(
-      this.coordinatorData.programs ? (this.coordinatorData.programs[0]? this.coordinatorData.programs[0] : '') : ''
-    );
+    // this.form.controls['password'].setValue(
+    //   this.coordinatorData.password ? this.coordinatorData.password : ''
+    // );
+    // this.form.controls['programId'].setValue(
+    //   this.coordinatorData.programs ? (this.coordinatorData.programs[0]? this.coordinatorData.programs[0] : '') : ''
+    // );
 
     this.list = this.coordinatorData.programs
       ? this.coordinatorData.programs
@@ -124,7 +124,7 @@ export class EditCoordinatorModalComponent implements OnInit {
       surname: this.form.value['surname'],
       email: this.form.value['email'],
       programId: this.form.value['programId'],
-      password: this.form.value['password'],
+      // password: this.form.value['password'],
       coordinatorId: this.coordinatorData._id
     };
 

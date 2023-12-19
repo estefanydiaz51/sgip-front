@@ -101,7 +101,7 @@ export interface Coordinator {
   gender?: string;
   email: string;
   birthDay?: string;
-  password: string;
+  password?: string;
   role?: string;
   academicTraining?: string;
   knowledgeAreas?: string[];
