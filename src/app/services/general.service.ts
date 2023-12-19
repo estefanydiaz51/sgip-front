@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -94,6 +94,14 @@ export class GeneralService {
     return this.httpService.post<any>(environment.apiUrl + '/update/coordinator', coordinator);
   }
 
-
+  deleteStudent(studentId:string): Observable<any> {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body: {studentId}, // Cuerpo de la solicitud DELETE
+    };
+    return this.httpService.delete<any>(environment.apiUrl + '/delete/student',options);
+  }
 
 }

@@ -11,7 +11,8 @@
   <div *ngIf="!showForm">
     <app-table
       *ngIf="students"
-      [students]="students">
+      [students]="students"
+      (reloadTable)="getStudents()">
     </app-table>
   </div>
   
