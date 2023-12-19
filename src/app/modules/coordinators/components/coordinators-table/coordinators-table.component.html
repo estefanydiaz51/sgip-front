@@ -12,7 +12,7 @@
       <tr *ngFor="let data of basicTable.data">
         <td>{{data.name + data.surname}}</td>
         <td>{{data.email}}</td>
-        <td>{{getProgramsNames(data.programs)}}</td>
+        <td>{{getProgramsNames(data.programs? data.programs : [])}}</td>
         <td class="actions">
           <a><span nz-icon nzType="edit" (click)="editCoordinatorModalVisible=true;coordinatorData=data;" nzTheme="outline"></span></a>
           <a><span nz-icon nzType="eye-invisible" nzTheme="outline"></span></a>

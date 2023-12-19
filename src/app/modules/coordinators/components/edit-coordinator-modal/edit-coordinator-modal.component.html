@@ -1,6 +1,6 @@
 <nz-modal [(nzVisible)]="isVisible" nzClosable="false" [nzWidth]="1000">
   <div *nzModalTitle class="title">
-    Editar Cohorte
+    Editar coordinador
   </div>
   <div *nzModalContent>
     <div nz-row>
@@ -26,13 +26,6 @@
               autocomplete="off">
           </div>
           <div nz-col nzSpan="24">
-            <input 
-              nz-input
-              formControlName="email"
-              placeholder="Correo electrónico"
-              autocomplete="off">
-          </div>
-          <div nz-col nzSpan="24">
             <nz-select
               nzPlaceHolder="Seleccione un programa"
               formControlName="programId"
@@ -40,8 +33,7 @@
               <nz-option
                 *ngFor="let program of listOfOptions"
                 [nzLabel]="program.name"
-                [nzValue]="program._id"
-                >
+                [nzValue]="program._id">
               </nz-option>
             </nz-select>
           </div>
@@ -73,7 +65,7 @@
         </button>
       </div>
       <div nz-col nzSpan="12" class="centerContent">
-        <button nz-button nzType="primary" [disabled]="form.invalid" (click)="updateCohort()">
+        <button nz-button nzType="primary" [disabled]="form.invalid" (click)="updateCoordinator()">
           <span>Guardar cambios</span>
         </button>
       </div>

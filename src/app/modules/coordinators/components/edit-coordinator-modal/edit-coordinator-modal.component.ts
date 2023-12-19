@@ -87,6 +87,7 @@ export class EditCoordinatorModalComponent implements OnInit {
       email: ['', [Validators.required]],
       programId: ['', [Validators.required]],
       password: ['', [Validators.required]],
+      passwordConfirm: ['', [Validators.required]]
     });
   }
 
@@ -106,6 +107,9 @@ export class EditCoordinatorModalComponent implements OnInit {
     this.form.controls['password'].setValue(
       this.coordinatorData.password ? this.coordinatorData.password : ''
     );
+    this.form.controls['programId'].setValue(
+      this.coordinatorData.programs ? (this.coordinatorData.programs[0]? this.coordinatorData.programs[0] : '') : ''
+    );
 
     this.list = this.coordinatorData.programs
       ? this.coordinatorData.programs
@@ -113,30 +117,31 @@ export class EditCoordinatorModalComponent implements OnInit {
     this.form.updateValueAndValidity();
   }
 
-  updateCohort(): void {
-    let data: Cohort = {
+  updateCoordinator(): void {
+
+    let data: Coordinator = {
       name: this.form.value['name'],
-      cohortId: this.form.value['id'],
-      code: this.form.value['code'],
-      numberStudents: this.form.value['numberStudents'],
-      startDate: this.form.value['startDate'],
-      EndDate: this.form.value['EndDate'],
-      teachers: this.list,
+      surname: this.form.value['surname'],
+      email: this.form.value['email'],
+      programId: this.form.value['programId'],
+      password: this.form.value['password'],
+      coordinatorId: this.coordinatorData._id
     };
 
     this.generalService.updateCoordinator(data).subscribe(
       (res) => {
         this.hideModalEvent.emit(false);
-        this.generalService.reloadProgramList.next(true);
+        this.reloadTable.emit(true);
+        //this.generalService.reloadProgramList.next(true);
         this.notificacionService.success(
           'Éxito',
-          'Se ah actualizado el programa.'
+          'Se ah actualizado el coordinador.'
         );
       },
       (error) => {
         this.notificacionService.error(
           'Error',
-          'Hubo un error al intentar actualizar el programa'
+          'Hubo un error al intentar actualizar el coordinador'
         );
       }
     );

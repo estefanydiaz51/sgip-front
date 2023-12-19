@@ -95,18 +95,20 @@ export interface Coordinator {
   _id?: string;
   name: string;
   surname: string;
-  idCard: string;
-  address: string;
-  phone: string;
-  gender: string;
+  idCard?: string;
+  address?: string;
+  phone?: string;
+  gender?: string;
   email: string;
-  birthDay: string;
+  birthDay?: string;
   password: string;
-  role: string;
-  academicTraining: string;
-  knowledgeAreas: string[];
-  programs: string[];
+  role?: string;
+  academicTraining?: string;
+  knowledgeAreas?: string[];
+  programs?: string[];
   __v?: 0;
+  programId?:string;
+  coordinatorId?:string;
 }
 
 export interface RegistryCoordinator {
